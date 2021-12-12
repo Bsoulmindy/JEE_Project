@@ -1,7 +1,5 @@
 package com.miniprojet.miniprojet.Model;
 
-import java.util.Set;
-
 import javax.persistence.*;
 
 import lombok.Data;
@@ -13,9 +11,9 @@ public class Stock {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
 
-    @OneToMany
+    @OneToOne
     @JoinColumn(name="idProduit", nullable = false)
-    private Set<Produit> produits;
+    private Produit produit;
 
     @Column(nullable = false)
     private int nbStock;

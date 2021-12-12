@@ -42,4 +42,10 @@ public class Produit {
 
     @OneToMany(mappedBy = "produit")
     private Set<Panier> paniers;
+
+    @OneToOne(mappedBy = "produit")
+    private Promo promo;
+
+    @OneToOne(mappedBy = "produit")
+    private Stock stock;
 }

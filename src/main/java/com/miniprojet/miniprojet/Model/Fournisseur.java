@@ -16,6 +16,6 @@ public class Fournisseur {
     @Column(nullable = false)
     private String nomFournisseur;
 
-    @OneToMany
+    @OneToMany(mappedBy = "fournisseur")
     private Set<Produit> produits;
 }
