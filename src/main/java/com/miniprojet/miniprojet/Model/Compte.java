@@ -17,7 +17,7 @@ public class Compte {
     @OneToOne(mappedBy = "compte")
     private Admin admin;
 
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
     private String username;
 
     @Column(nullable = false)
