@@ -13,7 +13,7 @@ public class Fournisseur {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
 
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
     private String nomFournisseur;
 
     @OneToMany(mappedBy = "fournisseur")

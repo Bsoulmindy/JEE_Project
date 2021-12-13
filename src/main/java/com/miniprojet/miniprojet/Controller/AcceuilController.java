@@ -2,7 +2,6 @@ package com.miniprojet.miniprojet.Controller;
 
 import com.miniprojet.miniprojet.Model.Client;
 import com.miniprojet.miniprojet.Model.Compte;
-import com.miniprojet.miniprojet.Repository.CompteRepository;
 import com.miniprojet.miniprojet.Service.CompteService;
 
 import org.springframework.beans.factory.annotation.Autowired;

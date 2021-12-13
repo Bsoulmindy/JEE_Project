@@ -28,4 +28,14 @@ public class Compte {
 
     @Column(nullable = false)
     private boolean isAdmin;
+
+    public boolean getIsAdmin() {
+        return this.isAdmin;
+    }
+
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
+    
 }

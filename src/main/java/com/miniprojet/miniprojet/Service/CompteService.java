@@ -18,8 +18,9 @@ public class CompteService {
 
     /**
      * Créer un compte avec son client lié dans la base de donnée
-     * @param compte
-     * @param client
+     * Le username et mail doit être unique dans la base de donnée
+     * @param compte : contenant les infos nécessaires
+     * @param client : contenant les infos nécessaires
      * @return <code>True</code> si l'enregistrement a été effectué avec succès,
      * <code>False</code> sinon.
      */
@@ -51,8 +52,9 @@ public class CompteService {
 
     /**
      * Créer un compte avec son admin lié dans la base de donnée
-     * @param compte
-     * @param admin
+     * Le username et mail doit être unique dans la base de donnée
+     * @param compte : contenant les infos nécessaires
+     * @param admin : contenant les infos nécessaires
      * @return <code>True</code> si l'enregistrement a été effectué avec succès,
      * <code>False</code> sinon.
      */

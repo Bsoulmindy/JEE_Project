@@ -24,6 +24,9 @@ public class Produit {
     private String categorieProduit;
 
     @Column(nullable = false)
+    private float prixFournisseur;
+
+    @Column(nullable = false)
     private float prixProduit;
 
     private String urlImageProduit;
