@@ -18,7 +18,7 @@ public class ProduitService {
      * Ajouter un nouveau produit
      * @param produit
      * @param fournisseur : doit être déjà existe dans la base de donnée
-     * @return <code>True</code> si le produit a été modifié sans erreur,
+     * @return <code>True</code> si le produit a été ajouté sans erreur,
      * <code>False</code> sinon
      */
     public boolean ajouterProduit(Produit produit, Fournisseur fournisseur)

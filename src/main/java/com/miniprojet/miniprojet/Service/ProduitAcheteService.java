@@ -61,4 +61,16 @@ public class ProduitAcheteService {
         }
         return chiffresAffaires;
     }
+
+    public ProduitAchete chercherAchatAvecID(int id)
+    {
+        ProduitAchete result = null;
+        try
+        {
+            result = produitAcheteRepository.findById(id).get();
+        }
+        catch(Exception e) {}
+
+        return result;
+    }
 }
