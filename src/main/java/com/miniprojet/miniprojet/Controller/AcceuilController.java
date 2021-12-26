@@ -1,8 +1,6 @@
 package com.miniprojet.miniprojet.Controller;
 
-import com.miniprojet.miniprojet.Model.Client;
-import com.miniprojet.miniprojet.Model.Compte;
-import com.miniprojet.miniprojet.Service.CompteService;
+import com.miniprojet.miniprojet.Service.StatsSiteService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,23 +10,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/")
 public class AcceuilController {
     @Autowired
-    private CompteService compteService;
+    private StatsSiteService statsSiteService;
 
     @GetMapping(path="")
     public @ResponseBody String test()
     {
-        Compte compte = new Compte();
-        compte.setUsername("username1");
-        compte.setMail("mail1");
-        compte.setPassword("password1");
-        
-        Client client = new Client();
-        client.setNomComplet("nomComplet");
-        client.setPays("pays");
-        client.setProvince("province");
-        client.setTel("tel");
-
-        if(!compteService.creerCompte(compte, client)) return "failed!";
+        statsSiteService.ajouterVisiteur(1);
 
         return "Success!";
     }

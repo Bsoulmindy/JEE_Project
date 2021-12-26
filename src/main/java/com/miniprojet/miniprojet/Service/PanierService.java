@@ -1,5 +1,8 @@
 package com.miniprojet.miniprojet.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.miniprojet.miniprojet.Model.Client;
 import com.miniprojet.miniprojet.Model.ClientProduitId;
 import com.miniprojet.miniprojet.Model.Panier;
@@ -61,5 +64,28 @@ public class PanierService {
         return true;
     }
 
-    
+    public boolean panierEstVide(Client client)
+    {
+        List<Panier> paniers = new ArrayList<Panier>();
+        try {
+            paniers = panierRepository.recupererPaniersDuClient(client.getId());
+        } catch (Exception e) {
+            return false; // Erreur
+        }
+        if(paniers == null) return false;
+
+        return true;
+    }
+
+    public List<Panier> recupererPaniers(Client client)
+    {
+        List<Panier> paniers = new ArrayList<Panier>();
+        try {
+            paniers = panierRepository.recupererPaniersDuClient(client.getId());
+        } catch (Exception e) {
+            return null; // Erreur
+        }
+        
+        return paniers;
+    }
 }

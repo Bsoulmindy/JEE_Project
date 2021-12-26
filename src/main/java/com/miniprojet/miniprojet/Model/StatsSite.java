@@ -1,6 +1,6 @@
 package com.miniprojet.miniprojet.Model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.*;
 
@@ -16,6 +16,7 @@ public class StatsSite {
     @Column(nullable = false)
     private int nbUsersToday;
 
-    @Column(nullable = false)
+    @Temporal(TemporalType.DATE)
+    @Column(unique = true, nullable = false)
     private Date date;
 }

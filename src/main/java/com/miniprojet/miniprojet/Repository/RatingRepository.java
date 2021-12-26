@@ -11,5 +11,5 @@ import org.springframework.data.repository.query.Param;
 
 public interface RatingRepository extends CrudRepository<Rating, ClientProduitId>{
     @Query("from Rating where idProduit = :idProduit")
-    List<Rating> recupererRatings(@Param("idproduit") int idProduit);
+    List<Rating> recupererRatings(@Param("idProduit") int idProduit);
 }
