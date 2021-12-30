@@ -1,22 +1,17 @@
 package com.miniprojet.miniprojet.Controller;
 
-import com.miniprojet.miniprojet.Service.StatsSiteService;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/")
 public class AcceuilController {
-    @Autowired
-    private StatsSiteService statsSiteService;
 
     @GetMapping(path="")
-    public @ResponseBody String test()
+    public String acceuil()
     {
-        statsSiteService.ajouterVisiteur(1);
+        //TODO : En attente des demandes du page acceuil.jsp
 
-        return "Success!";
+        return "acceuil";
     }
 }

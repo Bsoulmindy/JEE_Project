@@ -12,6 +12,10 @@ import org.springframework.stereotype.Service;
 public class StatsSiteService {
     @Autowired StatsSiteRepository statsSiteRepository;
 
+    /**
+     * ajouter un nombre de visiteurs au stats d'aujourd'hui
+     * @param nb
+     */
     public void ajouterVisiteur(int nb)
     {
         try
@@ -32,6 +36,10 @@ public class StatsSiteService {
         }
     }
 
+    /**
+     * 
+     * @return Nb de visiteurs qui ont visité le site aujourd'hui
+     */
     public int recupererNbVisiteurAujourdhui()
     {
         try 
@@ -45,6 +53,10 @@ public class StatsSiteService {
         return 0;
     }
 
+    /**
+     * 
+     * @return Nb de visiteurs qui ont visité le site globalement
+     */
     public int recupererNbVisiteurTotal()
     {
         try 

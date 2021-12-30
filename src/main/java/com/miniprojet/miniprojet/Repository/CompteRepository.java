@@ -12,4 +12,7 @@ public interface CompteRepository extends CrudRepository<Compte, Integer>{
 
     @Query("from Compte where username = :username and password = :password")
     Compte connecterAvecUsername(@Param("username") String username, @Param("password") String password);
+
+    @Query("from Compte where username = :username")
+    Compte chercherAvecUsername(@Param("username") String username);
 }

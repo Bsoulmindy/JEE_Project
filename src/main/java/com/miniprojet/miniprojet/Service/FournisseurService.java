@@ -1,5 +1,8 @@
 package com.miniprojet.miniprojet.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.miniprojet.miniprojet.Model.Fournisseur;
 import com.miniprojet.miniprojet.Repository.FournisseurRepository;
 
@@ -26,5 +29,12 @@ public class FournisseurService {
     public void supprimerFournisseur(Fournisseur fournisseur)
     {
         fournisseurRepository.deleteById(fournisseur.getId());
+    }
+
+    public List<Fournisseur> recupererFournisseurs()
+    {
+        List<Fournisseur> list = new ArrayList<Fournisseur>();
+        fournisseurRepository.findAll().iterator().forEachRemaining(list::add);
+        return list;
     }
 }
