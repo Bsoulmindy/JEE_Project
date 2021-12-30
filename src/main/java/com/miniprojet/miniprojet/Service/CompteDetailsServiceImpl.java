@@ -3,15 +3,12 @@ package com.miniprojet.miniprojet.Service;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Locale;
 import java.util.stream.Collectors;
 
-import com.miniprojet.miniprojet.Configuration.CustomProperties;
 import com.miniprojet.miniprojet.Model.Compte;
 import com.miniprojet.miniprojet.Repository.CompteRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,8 +18,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CompteDetailsServiceImpl implements UserDetailsService {
-   @Autowired MessageSource messageSource;
-   @Autowired CustomProperties customProperties;
+   @Autowired MessagesService messagesService;
    private CompteRepository CompteRepository;
 
    public CompteDetailsServiceImpl(CompteRepository CompteRepository) {
@@ -33,7 +29,7 @@ public class CompteDetailsServiceImpl implements UserDetailsService {
    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
       Compte Compte = CompteRepository.chercherAvecUsername(userName);
       if (Compte == null) {
-         throw new UsernameNotFoundException(messageSource.getMessage("account_not_found", null, new Locale(customProperties.getLanguage())));
+         throw new UsernameNotFoundException(messagesService.getMessage("account_not_found"));
       }
       return new org.springframework.security.core.userdetails.User(Compte.getUsername(),
             Compte.getPassword(),

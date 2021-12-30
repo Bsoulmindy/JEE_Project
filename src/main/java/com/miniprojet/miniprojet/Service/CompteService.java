@@ -1,15 +1,21 @@
 package com.miniprojet.miniprojet.Service;
 
+import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
+
 import com.miniprojet.miniprojet.Model.Admin;
 import com.miniprojet.miniprojet.Model.Client;
 import com.miniprojet.miniprojet.Model.Compte;
+import com.miniprojet.miniprojet.Model.Form.ForgotPasswordForm;
 import com.miniprojet.miniprojet.Model.Form.LoginUsernameForm;
-import com.miniprojet.miniprojet.Model.Form.NewCompteForm;
+import com.miniprojet.miniprojet.Model.Form.RegisterCompteForm;
 import com.miniprojet.miniprojet.Repository.AdminRepository;
 import com.miniprojet.miniprojet.Repository.ClientRepository;
 import com.miniprojet.miniprojet.Repository.CompteRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,6 +23,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import net.bytebuddy.utility.RandomString;
 
 @Service
 public class CompteService {
@@ -26,6 +34,7 @@ public class CompteService {
     @Autowired UserDetailsService userDetailsService;
     @Autowired AuthenticationManager authenticationManager;
     @Autowired PasswordEncoder passwordEncoder;
+    @Autowired JavaMailSender mailSender;
 
     /**
      * Créer un compte avec son client lié dans la base de donnée
@@ -35,7 +44,7 @@ public class CompteService {
      * @return <code>True</code> si l'enregistrement a été effectué avec succès,
      * <code>False</code> sinon.
      */
-    public boolean creerCompte(NewCompteForm compteForm, boolean isAdmin)
+    public boolean creerCompte(RegisterCompteForm compteForm, boolean isAdmin)
     {
         Compte compte = new Compte();
         compte.setMail(compteForm.getEmail());
@@ -134,5 +143,77 @@ public class CompteService {
             return ((UserDetails)userDetails).getUsername();
         }
         return null;
+    }
+
+    public boolean nouveauToken(ForgotPasswordForm form, HttpServletRequest request) {
+        String email = form.getEmail();
+        String token = RandomString.make(30);
+        Compte Compte = compteRepository.chercherAvecMail(email);
+        if (Compte != null) {
+            Compte.setResetPasswordToken(token);
+            try {
+                compteRepository.save(Compte);
+            } catch (Exception e) {
+                return false;
+            }
+            if(!envoyerMailResetPassword(token, email, request))
+                return false;
+        } else {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean envoyerMailResetPassword(String token, String email, HttpServletRequest request)
+    {
+        String from = "oussamabader@gmail.com";
+        String to = email;
+
+        String scheme = request.getScheme();
+        String host = request.getServerName();
+        int port = request.getServerPort();
+
+        String link = scheme + "://" + host + 
+        ((("http".equals(scheme) && port == 80) || ("https".equals(scheme) && port == 443)) ? "" : ":" + port) +
+        "/reset_password?token=" + token;
+        
+        MimeMessage message = mailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message);
+        try {
+            helper.setSubject("This is an HTML email");
+            helper.setFrom(from);
+            helper.setTo(to);
+            
+            String text = "";
+            text += "<b>Demande de réinitialisation du mot de passe</b><br>";
+            text += "<p><b>Email : </b><i>"+email+"</i></p><br>";
+            text += "<p>Pour réinitialiser votre mot de passe, cliquez sur ce lien : ";
+            text += "<a href=\"" + link + "\">"+ link +"</a>";
+            text += "</p>";
+            helper.setText(text, true);
+            
+            mailSender.send(message);
+        } catch (Exception e) {
+            return false;
+        }
+        
+        return true;
+    }
+     
+    public Compte recupererCompteAvecToken(String token) {
+        return compteRepository.chercherAvecToken(token);
+    }
+     
+    public boolean miseAJourPassword(Compte Compte, String newPassword) {
+        String encodedPassword = passwordEncoder.encode(newPassword);
+        Compte.setPassword(encodedPassword);
+         
+        Compte.setResetPasswordToken(null);
+        try {
+            compteRepository.save(Compte);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 }

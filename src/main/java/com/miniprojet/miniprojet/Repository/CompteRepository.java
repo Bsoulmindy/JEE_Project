@@ -15,4 +15,10 @@ public interface CompteRepository extends CrudRepository<Compte, Integer>{
 
     @Query("from Compte where username = :username")
     Compte chercherAvecUsername(@Param("username") String username);
+
+    @Query("from Compte where mail = :mail")
+    public Compte chercherAvecMail(@Param("mail") String email);
+
+    @Query("from Compte where resetPasswordToken = :token")
+    public Compte chercherAvecToken(@Param("token") String token);
 }
