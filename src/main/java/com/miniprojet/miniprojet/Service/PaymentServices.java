@@ -18,8 +18,8 @@ public class PaymentServices {
  
     /**
      * Commencer une nouvelle transaction avec Paypal
-     * @param orderDetail
-     * @return
+     * @param orderDetail : Tous les infos nécessaires pour créer une transaction
+     * @return Lien au Paypal pour que le client accède au transaction crée
      * @throws PayPalRESTException
      */
     public String authorizePayment(OrderDetail orderDetail) throws PayPalRESTException {
@@ -42,11 +42,24 @@ public class PaymentServices {
  
     }
 
+    /**
+     * Recuperer les infos du transaction d'après Paypal
+     * @param paymentId : ID du transaction qui est généré par Paypal
+     * @return <code>Payment</code> qui contient tout les infos sur la transaction
+     * @throws PayPalRESTException
+     */
     public Payment getPaymentDetails(String paymentId) throws PayPalRESTException {
         APIContext apiContext = new APIContext(customProperties.getClient_id(), customProperties.getClient_secret(), customProperties.getMode());
         return Payment.get(apiContext, paymentId);
     }
 
+    /**
+     * Executer la transaction
+     * @param paymentId : ID du transaction qui est généré par Paypal
+     * @param payerId : ID du compte Paypal de client
+     * @return <code>Payment</code> qui contient tout les infos sur la transaction
+     * @throws PayPalRESTException
+     */
     public Payment executePayment(String paymentId, String payerId) throws PayPalRESTException 
     {
         PaymentExecution paymentExecution = new PaymentExecution();
@@ -85,16 +98,7 @@ public class PaymentServices {
         return redirectUrls;
     }
      
-    private List<Transaction> getTransactionInformation(OrderDetail orderDetail) {
-        Details details = new Details();
-        //details.setShipping(Float.toString(orderDetail.getShipping()));
-        //details.setSubtotal(Float.toString(orderDetail.getSubtotal()));
-        //details.setTax(Float.toString(orderDetail.getTax()));
-
-        details.setShipping(Float.toString(0));
-        details.setSubtotal(Float.toString(250));
-        details.setTax(Float.toString(0));
-    
+    private List<Transaction> getTransactionInformation(OrderDetail orderDetail) {    
         Amount amount = new Amount();
         amount.setCurrency("USD");
         amount.setTotal(Float.toString(orderDetail.getTotal()));
