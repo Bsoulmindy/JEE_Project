@@ -11,5 +11,8 @@ import org.springframework.data.repository.query.Param;
 public interface ProduitRepository extends CrudRepository<Produit, Integer>{
     @Query("from Produit where categorieProduit = :categorie and isDeleted = :deleted")
     List<Produit> chercherProduit(@Param("categorie") String categorie, @Param("deleted") boolean deleted);
+
+    @Query("from Produit where nomProduit = :nomProduit")
+    Produit chercherProduitAvecNom(@Param("nomProduit") String nomProduit);
 }
 

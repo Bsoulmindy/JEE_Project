@@ -23,5 +23,5 @@ public class Personne {
     @Column(nullable = false)
     private String province;
 
-    private String imageUrl;
+    private String imageUrl = "/images/ProfileDefault.png";
 }

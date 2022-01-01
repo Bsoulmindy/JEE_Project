@@ -92,10 +92,11 @@ public class AuthController {
 
         if(!compteService.nouveauToken(form, request))
         {
-            model.addAttribute("account", messagesService.getMessage("account_not_found"));
+            model.addAttribute("error", messagesService.getMessage("account_not_found"));
             return "forgotPassword";
         }
-        
+
+        model.addAttribute("success", true); 
 
         return "forgotPassword";
     }
@@ -110,15 +111,28 @@ public class AuthController {
     }
 
     @PostMapping(path = "reset_password")
-    public @ResponseBody String resetPassword(final @Valid  ResetPasswordForm form, final BindingResult bindingResult, final Model model)
+    public String resetPassword(final @Valid  ResetPasswordForm form, final BindingResult bindingResult, final Model model)
     {
-        if (bindingResult.hasErrors()) return "form has errors!";
+        if (bindingResult.hasErrors())
+        {
+            model.addAttribute("errors", bindingResult.getAllErrors());
+            return "resetPassword";
+        }
 
         Compte compte = compteService.recupererCompteAvecToken(form.getToken());
-        if(compte == null) return "tokenInvalid";
+        if(compte == null)
+        {
+            return "redirect:/";
+        }
 
-        if(!compteService.miseAJourPassword(compte, form.getPassword())) return "password not changed!";
+        if(!compteService.miseAJourPassword(compte, form.getPassword()))
+        {
+            model.addAttribute("error", messagesService.getMessage("password_not_changed"));
+            return "resetPassword";
+        }
 
-        return "password changed!";
+        model.addAttribute("success", true);
+
+        return "resetPassword";
     }
 }

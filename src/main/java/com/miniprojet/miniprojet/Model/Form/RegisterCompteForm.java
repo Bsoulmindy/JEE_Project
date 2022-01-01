@@ -1,6 +1,7 @@
 package com.miniprojet.miniprojet.Model.Form;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.validation.constraints.Email;
 
@@ -43,5 +44,7 @@ public class RegisterCompteForm implements Serializable {
     private String province;
 
     @NotNull(message = "{Tel.notnull}")
+    @Size(min=1, message = "{Tel.notempty}")
+    @Pattern(regexp = "^\\d{10}$", message = "{Tel.invalid}")
     private String tel;
 }

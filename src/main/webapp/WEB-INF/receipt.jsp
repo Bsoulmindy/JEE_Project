@@ -1,50 +1,60 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Payment Receipt</title>
-<style type="text/css">
-    table { border: 0; }
-    table td { padding: 5px; }
-</style>
-</head>
-<body>
-<div align="center">
-    <h1>Payment Done. Thank you for purchasing our products</h1>
-    <br/>
-    <h2>Receipt Details:</h2>
-    <table>
-        <tr>
-            <td><b>Merchant:</b></td>
-            <td>Company ABC Ltd.</td>
-        </tr>
-        <tr>
-            <td><b>Payer:</b></td>
-            <td>${payer.firstName} ${payer.lastName}</td>      
-        </tr>
-        <tr>
-            <td><b>Description:</b></td>
-            <td>${transaction.description}</td>
-        </tr>
-        <tr>
-            <td><b>Subtotal:</b></td>
-            <td>${transaction.amount.details.subtotal} USD</td>
-        </tr>
-        <tr>
-            <td><b>Shipping:</b></td>
-            <td>${transaction.amount.details.shipping} USD</td>
-        </tr>
-        <tr>
-            <td><b>Tax:</b></td>
-            <td>${transaction.amount.details.tax} USD</td>
-        </tr>
-        <tr>
-            <td><b>Total:</b></td>
-            <td>${transaction.amount.total} USD</td>
-        </tr>                    
-    </table>
-</div>
-</body>
+<html style="font-size: 16px;">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>Panier</title>
+    <link rel="stylesheet" href="/nicepage.css" media="screen">
+<link rel="stylesheet" href="/panier1.css" media="screen">
+<link rel="stylesheet" href="/bootstrap.min.css" media="screen">
+    <script class="u-script" type="text/javascript" src="/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="/nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 4.1.0, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+    <!-- fonts awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    
+    <script src="/panier1.js"></script>
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"logo": "images/logo.png"
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="website">
+  </head>
+  <body onload="populateTableList()" class="u-body u-overlap u-overlap-contrast u-stick-footer">
+  <c:import url="/inc/header.jsp"/>
+     
+
+      <div class="alert alert-success" role="alert">
+        Félicitation! votre ordre va être transporté à votre adresse bientôt!
+      </div>
+     
+
+
+
+
+
+      <footer class="u-align-center u-clearfix u-custom-color-5 u-footer u-footer" id="sec-f04e">
+        <div class="u-align-left u-clearfix u-sheet u-sheet-1"></div></footer>
+    <section class="u-backlink u-clearfix u-grey-80">
+      <p class="u-text">
+        <span> &copy; All rights reserved by</span>
+      </p>
+      <a class="u-link" href="/About.html" target="_blank">
+        <span>PIMED</span>
+      </a>. 
+    </section>
+    <script src="/bootstrap.min.js"></script>
+    <script src="/bootstrap.bundle.min.js"></script>
+    <script src="/panier.js"></script>
+  </body>
 </html>

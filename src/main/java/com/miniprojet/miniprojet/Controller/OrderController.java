@@ -3,12 +3,11 @@ package com.miniprojet.miniprojet.Controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.validation.Valid;
+import javax.servlet.http.HttpServletRequest;
 
 import com.miniprojet.miniprojet.Model.OrderDetail;
 import com.miniprojet.miniprojet.Model.Panier;
 import com.miniprojet.miniprojet.Model.Produit;
-import com.miniprojet.miniprojet.Model.Form.PaypalForm;
 import com.miniprojet.miniprojet.Service.PaymentServices;
 import com.paypal.api.payments.PayerInfo;
 import com.paypal.api.payments.Payment;
@@ -20,11 +19,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/paypal")
+@RequestMapping("paypal")
 public class OrderController {
     @Autowired PaymentServices paymentServices;
 
@@ -34,15 +32,11 @@ public class OrderController {
         return "checkout";
     }
 
-    @PostMapping(path="/authorize_payment")
-    public String authorize_payment(final @Valid  PaypalForm form, final BindingResult bindingResult, final Model model)
+    @PostMapping(path="/achat")
+    public String authorize_payment(HttpServletRequest request, final Model model)
     {
-        if(bindingResult.hasErrors()){
-            model.addAttribute("errors", bindingResult.getAllErrors());
-            return "error";
-        }
-
         OrderDetail orderDetail = new OrderDetail();
+
 
         Panier panier1 = new Panier();
         Produit produit1 = new Produit();

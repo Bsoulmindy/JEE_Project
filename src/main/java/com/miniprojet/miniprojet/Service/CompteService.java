@@ -1,5 +1,13 @@
 package com.miniprojet.miniprojet.Service;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.NoSuchElementException;
+
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 
@@ -23,6 +31,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 import net.bytebuddy.utility.RandomString;
 
@@ -182,7 +192,7 @@ public class CompteService {
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
         try {
-            helper.setSubject("This is an HTML email");
+            helper.setSubject("Demande de réinitialisation du mot de passe");
             helper.setFrom(from);
             helper.setTo(to);
             
@@ -217,5 +227,168 @@ public class CompteService {
             return false;
         }
         return true;
+    }
+
+    /**
+     * <p>Changer les infos d'un compte.</p>
+     * <p>Les champs disponibles :</p>
+     * <ul>
+     * <li><code>email</code></li>
+     * <li><code>username</code></li>
+     * <li><code>nomComplet</code></li>
+     * <li><code>adresse</code></li>
+     * <li><code>pays</code></li>
+     * <li><code>province</code></li>
+     * <li><code>tel</code></li>
+     * <li><code>imageUrl</code></li>
+     * </ul>
+     * @param compte : <code>Compte</code> à changer
+     * @param champ : Le nom du champ
+     * @param valeur : La nouvelle valeur
+     * @return <code>True</code> s'il est changé, <code>False</code> sinon
+     */
+    public boolean miseAjourCompte(Compte compte, String champ, String valeur)
+    {
+        Compte compteBD = null;
+        try {
+            compteBD = compteRepository.findById(compte.getId()).get();
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+        
+        try {
+            switch(champ)
+            {
+                case "email":
+                    compteBD.setMail(valeur);
+                    compteRepository.save(compteBD);
+                    return true;
+                case "username":
+                    compteBD.setUsername(valeur);
+                    compteRepository.save(compteBD);
+                    return true;
+                case "nomComplet":
+                    if(compteBD.getIsAdmin())
+                    {
+                        Admin admin = compteBD.getAdmin();
+                        admin.setNomComplet(valeur);
+                        adminRepository.save(admin);
+                        return true;
+                    }
+                    else
+                    {
+                        Client Client = compteBD.getClient();
+                        Client.setNomComplet(valeur);
+                        clientRepository.save(Client);
+                        return true;
+                    }
+                case "adresse":
+                    if(compteBD.getIsAdmin())
+                    {
+                        Admin admin = compteBD.getAdmin();
+                        admin.setAdresse(valeur);
+                        adminRepository.save(admin);
+                        return true;
+                    }
+                    else
+                    {
+                        Client Client = compteBD.getClient();
+                        Client.setAdresse(valeur);
+                        clientRepository.save(Client);
+                        return true;
+                    }
+                case "pays":
+                    if(compteBD.getIsAdmin())
+                    {
+                        Admin admin = compteBD.getAdmin();
+                        admin.setPays(valeur);
+                        adminRepository.save(admin);
+                        return true;
+                    }
+                    else
+                    {
+                        Client Client = compteBD.getClient();
+                        Client.setPays(valeur);
+                        clientRepository.save(Client);
+                        return true;
+                    }
+                case "province":
+                    if(compteBD.getIsAdmin())
+                    {
+                        Admin admin = compteBD.getAdmin();
+                        admin.setProvince(valeur);
+                        adminRepository.save(admin);
+                        return true;
+                    }
+                    else
+                    {
+                        Client Client = compteBD.getClient();
+                        Client.setProvince(valeur);
+                        clientRepository.save(Client);
+                        return true;
+                    }
+                case "tel":
+                    if(compteBD.getIsAdmin())
+                    {
+                        Admin admin = compteBD.getAdmin();
+                        admin.setTel(valeur);
+                        adminRepository.save(admin);
+                        return true;
+                    }
+                    else
+                    {
+                        Client Client = compteBD.getClient();
+                        Client.setTel(valeur);
+                        clientRepository.save(Client);
+                        return true;
+                    }
+                case "imageUrl":
+                    if(compteBD.getIsAdmin())
+                    {
+                        Admin admin = compteBD.getAdmin();
+                        admin.setImageUrl(valeur);
+                        adminRepository.save(admin);
+                        return true;
+                    }
+                    else
+                    {
+                        Client Client = compteBD.getClient();
+                        Client.setImageUrl(valeur);
+                        clientRepository.save(Client);
+                        return true;
+                    }
+                default:
+                    return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public void uploadImageToCompte(MultipartFile image, Compte compte)
+    {
+        String fileName = StringUtils.cleanPath(image.getOriginalFilename());
+        try
+        {
+            saveFile("src/main/webapp/images/", fileName, image);
+        }
+        catch(IOException e){}
+
+        miseAjourCompte(compte, "imageUrl", "/images/"+fileName);
+    }
+
+    private void saveFile(String uploadDir, String fileName, MultipartFile multipartFile) throws IOException {
+        Path uploadPath = Paths.get(uploadDir);
+         
+        if (!Files.exists(uploadPath)) {
+            Files.createDirectories(uploadPath);
+        }
+         
+        try (InputStream inputStream = multipartFile.getInputStream()) {
+            Path filePath = uploadPath.resolve(fileName);
+            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException ioe) {        
+            throw new IOException("Could not save image file: " + fileName, ioe);
+        }      
     }
 }

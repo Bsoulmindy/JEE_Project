@@ -2,6 +2,7 @@ package com.miniprojet.miniprojet.Controller;
 
 import java.util.List;
 
+import com.miniprojet.miniprojet.Model.Compte;
 import com.miniprojet.miniprojet.Model.Stock;
 import com.miniprojet.miniprojet.Service.CompteService;
 import com.miniprojet.miniprojet.Service.StockService;
@@ -22,6 +23,8 @@ public class ProduitsController {
     @GetMapping(path="")
     public String AllProduitsStock(Model model, String q) // q : la zone de recherche
     {
+        Compte compte = null;
+
         //Verifions si l'utilisatuer actuel est connecté avec SecurityContext
         if(SecurityContextHolder.getContext().getAuthentication() == null)
             //Si non, on affecte la variable "user" = null au jsp
@@ -29,7 +32,21 @@ public class ProduitsController {
         else
         {
             //Si oui, on affecte la variable "user" = compte au jsp
-            model.addAttribute("user", compteService.recupererCompteActuel());
+            compte = compteService.recupererCompteActuel();
+            model.addAttribute("user", compte);
+        }
+
+        //Est ce que le compte est Admin ou client?
+        if(compte != null)
+        {
+            if(compte.getIsAdmin())
+            {
+                model.addAttribute("personne", compte.getAdmin());
+            }
+            else
+            {
+                model.addAttribute("personne", compte.getClient());
+            }
         }
 
         List<Stock> stocks = stockService.recupererStock(false);

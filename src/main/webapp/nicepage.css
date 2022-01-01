@@ -4802,6 +4802,10 @@ a {
   align-items: center;
   flex-grow: 1;
 }
+
+form.u-clearfix.u-form-horizontal.u-form-spacing-24.u-inner-form {
+    width: 100%;
+}
 .u-input {
   display: block;
   width: 100%;
@@ -5266,7 +5270,7 @@ a {
   width: 33.33333333%;
 }
 .u-form-vertical .u-form-partition-factor-2 {
-  width: 50%;
+  /* width: 50%; */
 }
 .u-form-vertical .u-form-partition-factor-1 {
   width: 100%;

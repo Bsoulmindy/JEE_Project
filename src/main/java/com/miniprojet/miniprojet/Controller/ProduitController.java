@@ -1,5 +1,6 @@
 package com.miniprojet.miniprojet.Controller;
 
+import com.miniprojet.miniprojet.Model.Compte;
 import com.miniprojet.miniprojet.Service.CompteService;
 import com.miniprojet.miniprojet.Service.ProduitService;
 
@@ -21,6 +22,8 @@ public class ProduitController {
     @GetMapping(path="/{id}")
     public String AllProduitsStock(Model model,@PathVariable("id") @Nullable String id) // id : ID du produit
     {
+        Compte compte = null;
+
         //Verifions si l'utilisatuer actuel est connecté avec SecurityContext
         if(SecurityContextHolder.getContext().getAuthentication() == null)
             //Si non, on affecte la variable "user" = null au jsp
@@ -28,7 +31,21 @@ public class ProduitController {
         else
         {
             //Si oui, on affecte la variable "user" = compte au jsp
-            model.addAttribute("user", compteService.recupererCompteActuel());
+            compte = compteService.recupererCompteActuel();
+            model.addAttribute("user", compte);
+        }
+
+        //Est ce que le compte est Admin ou client?
+        if(compte != null)
+        {
+            if(compte.getIsAdmin())
+            {
+                model.addAttribute("personne", compte.getAdmin());
+            }
+            else
+            {
+                model.addAttribute("personne", compte.getClient());
+            }
         }
 
         //Si id est introuvable

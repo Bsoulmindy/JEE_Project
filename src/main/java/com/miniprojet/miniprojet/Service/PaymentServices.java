@@ -121,7 +121,7 @@ public class PaymentServices {
             Item item = new Item();
             item.setCurrency("USD");
             item.setName(panier.getProduit().getNomProduit());
-            item.setPrice(Float.toString(panier.getProduit().getPrixProduit()));
+            item.setPrice(Float.toString(panier.getProduit().getPrixProduit() / 10));
             item.setTax(Float.toString(0));
             item.setQuantity(Integer.toString(panier.getNbProduit()));
             items.add(item);

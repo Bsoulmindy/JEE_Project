@@ -1,98 +1,101 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Review</title>
-<style type="text/css">
-    table { border: 0; }
-    table td { padding: 5px; }
-</style>
-</head>
-<body>
-<div align="center">
-    <h1>Please Review Before Paying</h1>
-    <form action="execute_payment" method="post">
-    <table>
-        <tr>
-            <td colspan="2"><b>Transaction Details:</b></td>
-            <td>
-                <input type="hidden" name="paymentId" value="${paymentId}" />
-                <input type="hidden" name="PayerID" value="${PayerID}" />
-            </td>
-        </tr>
-        <tr>
-            <td>Description:</td>
-            <td>${transaction.description}</td>
-        </tr>
-        <tr>
-            <td>Subtotal:</td>
-            <td>${transaction.amount.details.subtotal} USD</td>
-        </tr>
-        <tr>
-            <td>Shipping:</td>
-            <td>${transaction.amount.details.shipping} USD</td>
-        </tr>
-        <tr>
-            <td>Tax:</td>
-            <td>${transaction.amount.details.tax} USD</td>
-        </tr>
-        <tr>
-            <td>Total:</td>
-            <td>${transaction.amount.total} USD</td>
-        </tr>
-        <tr><td><br/></td></tr>
-        <tr>
-            <td colspan="2"><b>Payer Information:</b></td>
-        </tr>
-        <tr>
-            <td>First Name:</td>
-            <td>${payer.firstName}</td>
-        </tr>
-        <tr>
-            <td>Last Name:</td>
-            <td>${payer.lastName}</td>
-        </tr>
-        <tr>
-            <td>Email:</td>
-            <td>${payer.email}</td>
-        </tr>
-        <tr><td><br/></td></tr>
-        <tr>
-            <td colspan="2"><b>Shipping Address:</b></td>
-        </tr>
-        <tr>
-            <td>Recipient Name:</td>
-            <td>${shippingAddress.recipientName}</td>
-        </tr>
-        <tr>
-            <td>Line 1:</td>
-            <td>${shippingAddress.line1}</td>
-        </tr>
-        <tr>
-            <td>City:</td>
-            <td>${shippingAddress.city}</td>
-        </tr>
-        <tr>
-            <td>State:</td>
-            <td>${shippingAddress.state}</td>
-        </tr>
-        <tr>
-            <td>Country Code:</td>
-            <td>${shippingAddress.countryCode}</td>
-        </tr>
-        <tr>
-            <td>Postal Code:</td>
-            <td>${shippingAddress.postalCode}</td>
-        </tr>
-        <tr>
-            <td colspan="2" align="center">
-                <input type="submit" value="Pay Now" />
-            </td>
-        </tr>    
-    </table>
-    </form>
-</div>
-</body>
+<html style="font-size: 16px;">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>Panier</title>
+    <link rel="stylesheet" href="/nicepage.css" media="screen">
+<link rel="stylesheet" href="/panier1.css" media="screen">
+<link rel="stylesheet" href="/bootstrap.min.css" media="screen">
+    <script class="u-script" type="text/javascript" src="/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="/nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 4.1.0, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+    <!-- fonts awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    
+    <script src="/panier1.js"></script>
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"logo": "images/logo.png"
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="website">
+  </head>
+  <body onload="populateTableList()" class="u-body u-overlap u-overlap-contrast u-stick-footer">
+  <c:import url="/inc/header.jsp"/>
+     
+      <div align="center">
+        <h1>Vous êtes sur le point de payer</h1>
+        <form action="execute_payment" method="post">
+        <table>
+            <tr>
+                <td colspan="2"><b>Details de transaction:</b></td>
+                <td>
+                    <input type="hidden" name="paymentId" value="${paymentId}" />
+                    <input type="hidden" name="PayerID" value="${PayerID}" />
+                </td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td>${transaction.description}</td>
+            </tr>
+            <tr>
+                <td>Total:</td>
+                <td><span class="fw-bold" style="color: red;">${transaction.amount.total } USD</span> (${transaction.amount.total * 10} DH)</td>
+            </tr>
+            <tr><td><br/></td></tr>
+            <tr>
+                <td colspan="2"><b>Votre informations:</b></td>
+            </tr>
+            <tr>
+                <td>Votre prénom:</td>
+                <td>${payer.firstName}</td>
+            </tr>
+            <tr>
+                <td>Votre nom:</td>
+                <td>${payer.lastName}</td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td>${payer.email}</td>
+            </tr>
+            <tr><td><br/></td></tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input class="btn btn-warning" type="submit" value="Je confirme et j'achete" />
+                </td>
+            </tr>    
+        </table>
+        </form>
+      </div>
+
+     
+
+
+
+
+
+      <footer class="u-align-center u-clearfix u-custom-color-5 u-footer u-footer" id="sec-f04e">
+        <div class="u-align-left u-clearfix u-sheet u-sheet-1"></div></footer>
+    <section class="u-backlink u-clearfix u-grey-80">
+      <p class="u-text">
+        <span> &copy; All rights reserved by</span>
+      </p>
+      <a class="u-link" href="/About.html" target="_blank">
+        <span>PIMED</span>
+      </a>. 
+    </section>
+    <script src="/bootstrap.min.js"></script>
+    <script src="/bootstrap.bundle.min.js"></script>
+    <script src="/panier.js"></script>
+  </body>
 </html>

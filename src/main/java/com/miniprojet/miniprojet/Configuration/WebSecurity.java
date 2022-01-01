@@ -40,7 +40,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
       http 
       .csrf().disable()
       .authorizeRequests()
-      .antMatchers("/profil/**").hasAuthority("Client")
+      .antMatchers("/Profil/**").hasAuthority("Client")
       .antMatchers("/admin/**").hasAuthority("Admin")
       .anyRequest().permitAll() //any other request
       .and() 

@@ -88,4 +88,9 @@ public class PanierService {
         
         return paniers;
     }
+
+    public void supprimerPanier(Panier panier)
+    {
+        panierRepository.deleteById(panier.getId());
+    }
 }

@@ -78,6 +78,18 @@ public class ProduitService {
         return produit;
     }
 
+    public Produit recupererProduitAvecNom(String nom)
+    {
+        Produit produit = null;
+        try
+        {
+            produit = produitRepository.chercherProduitAvecNom(nom);
+        }
+        catch(Exception e) {}
+
+        return produit;
+    }
+
     /**
      * Recuperer des produits dans une catégorie précise
      * @param categorie
