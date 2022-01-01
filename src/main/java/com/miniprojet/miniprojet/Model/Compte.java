@@ -32,6 +32,10 @@ public class Compte {
     @Column(name = "reset_password_token")
     private String resetPasswordToken;
 
+    
+
+
+
     public boolean getIsAdmin() {
         return this.isAdmin;
     }

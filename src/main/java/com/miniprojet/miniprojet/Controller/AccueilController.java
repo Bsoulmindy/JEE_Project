@@ -1,26 +1,21 @@
 package com.miniprojet.miniprojet.Controller;
 
-import java.util.List;
-
-import com.miniprojet.miniprojet.Model.Stock;
 import com.miniprojet.miniprojet.Service.CompteService;
-import com.miniprojet.miniprojet.Service.StockService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/Produits")
-public class ProduitsController {
-    @Autowired StockService stockService;
+@RequestMapping("/")
+public class AccueilController {
+    //En injecte compteService pour qu'il devient disponible dans cette classe
     @Autowired CompteService compteService;
-    
-    @GetMapping(path="")
-    public String AllProduitsStock(Model model, String q) // q : la zone de recherche
+
+    @GetMapping(path="") // Méthode invoqué pour GET de lien "/"
+    public String acceuil(Model model) // Model est une classe qui permet l'échange entre les Views et le Controlleur
     {
         //Verifions si l'utilisatuer actuel est connecté avec SecurityContext
         if(SecurityContextHolder.getContext().getAuthentication() == null)
@@ -32,16 +27,6 @@ public class ProduitsController {
             model.addAttribute("user", compteService.recupererCompteActuel());
         }
 
-        List<Stock> stocks = stockService.recupererStock(false);
-        if(q == null)
-        {
-            model.addAttribute("stocks", stocks);
-        }
-        else
-        {
-            model.addAttribute("stocks", stockService.chercherProduits(stocks, q));
-        }
-
-        return "Produits";
+        return "Accueil"; // la methode GET retourne à la fin le nom du jsp (Acceuil.jsp)
     }
 }

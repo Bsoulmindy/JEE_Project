@@ -1,3 +1,5 @@
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en" style="font-size: 16px;">
   <head>
@@ -8,10 +10,10 @@
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>produit</title>
-    <link rel="stylesheet" href="nicepage.css" media="screen">
-    <link rel="stylesheet" href="produit.css" media="screen">
-    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <link rel="stylesheet" href="/nicepage.css" media="screen">
+    <link rel="stylesheet" href="/produit.css" media="screen">
+    <script class="u-script" type="text/javascript" src="/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="/nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 4.1.0, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
   <!-- fonts awesome -->
@@ -25,7 +27,7 @@
     var html = '';
     for (i=0; i<n; i++){
       id = i+1;
-      html += '<a href="#"><img src="images/starOut.png" ';
+      html += '<a href="#"><img src="/images/starOut.png"';
       html += 'id="star" value="off" ';
       html += 'onMouseOver="over('+id+');" ';
       html += 'onMouseOut="out('+id+');" ';
@@ -40,9 +42,9 @@
     
     if (nb > 0)
       for (i=0; i<nb; i++)
-        tabImg[i].src="images/starOver.png";
+        tabImg[i].src="/images/starOver.png";
     for (i=nb; i<n; i++)
-      tabImg[i].src="images/starOut.png";
+      tabImg[i].src="/images/starOut.png";
   }
   
   function out(nb){
@@ -50,10 +52,10 @@
     tabImg = elemClassement.getElementsByTagName("img");
     
     for (i=0; i<nb; i++)
-      tabImg[i].src="images/starOut.png";
+      tabImg[i].src="/images/starOut.png";
     for (i=0; i<n; i++){
       if (tabImg[i].value == "on")
-        tabImg[i].src="images/starOn.png";
+        tabImg[i].src="/images/starOn.png";
     }
   }
   
@@ -62,11 +64,11 @@
     tabImg = elemClassement.getElementsByTagName("img");
     
     for (i=0; i<nb; i++){
-      tabImg[i].src="images/starOn.png";
+      tabImg[i].src="/images/starOn.png";
       tabImg[i].value="on";
     }
     for (i=nb; i<n; i++){
-      tabImg[i].src="images/starOut.png";
+      tabImg[i].src="/images/starOut.png";
       tabImg[i].value="off";
     }
     
@@ -171,7 +173,7 @@
       <div class="u-custom-color-5 u-expanded-height u-shape u-shape-rectangle u-shape-2"></div><!--product--><!--product_options_json--><!--{"source":""}--><!--/product_options_json--><!--product_item-->
       <div class="u-align-left u-container-style u-product u-product-1">
         <div class="u-container-layout u-container-layout-1"><!--product_image-->
-          <img alt="" class="u-image u-image-default u-product-control u-image-1" data-image-width="1100" data-image-height="1114" id="id" src="images/8min.jpg"><!--/product_image-->
+          <img alt="" width="350" height="250" id="id" src="<c:url value='/images/8min.jpg'/>"><!--/product_image-->
           <h4 id="name" class="u-text u-text-default u-text-1" style="">Thétoscope</h4>
          <!-- etoiles -->
           <div style="margin-left: 550px; " id="classement" name="cls">
@@ -189,15 +191,6 @@
                 <input id="qte" type="number" value="1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white"><!--product_variation_option-->
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
               </div>
-              <label for="product-variant-select-1" class="u-label"><!--product_variation_label_content-->Size<!--/product_variation_label_content--></label>
-              <div class="u-form-select-wrapper">
-                <select id="product-variant-select-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white"><!--product_variation_option-->
-                  <option value="Item 1"><!--product_variation_option_content-->XL<!--/product_variation_option_content--></option><!--/product_variation_option--><!--product_variation_option-->
-                  <option value="Item 2"><!--product_variation_option_content-->L<!--/product_variation_option_content--></option><!--/product_variation_option--><!--product_variation_option-->
-                  <option value="Item 3"><!--product_variation_option_content-->M<!--/product_variation_option_content--></option><!--/product_variation_option-->
-                </select>
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
-              </div>
             </div><!--/product_variation-->
           </div><!--/product_variations--><!--product_button--><!--options_json--><!--{"clickType":"add-to-cart","content":"ajouter au panier"}--><!--/options_json-->
           <a href="panier1.html" onclick='populateTableList()' class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-product-control u-white u-btn-1"><!--product_button_content-->ajouter au panier<!--/product_button_content--></a><!--/product_button--><!--product_button--><!--options_json--><!--{"clickType":"add-to-cart","content":"acheter"}--><!--/options_json-->
@@ -208,7 +201,7 @@
       <h3 style="margin-left: 30%;">Commentaires de nos clients:</h3>
 <section style=" background-color: rgb(242, 243, 247);  margin-left: 30%; margin-right: 20%; margin-bottom: 3%; border: 2px #556080 solid;" >
 
-  <div style="border: 1px solid; float: left; "><img style="margin-top: 20px; height: 150px; width: 150px;" src="images/usericon.png" alt="">
+  <div style="border: 1px solid; float: left; "><img style="margin-top: 20px; height: 150px; width: 150px;" src="<c:url value='/images/usericon.png'/>" alt="">
   </div>
   <div style=" float:none; width:auto;">
     <article style="margin-left: 17%;" >
@@ -220,7 +213,7 @@
   </div> 
  
     
-  <div style="border: 1px solid; float: left; "><img style=" height: 150px; width: 150px;" src="images/usericon.png" alt="">
+  <div style="border: 1px solid; float: left; "><img style=" height: 150px; width: 150px;" src="<c:url value='/images/usericon.png'/>" alt="">
   </div>
   <div style=" float:none; width:auto;">
     <article style="margin-left: 17%;" >
@@ -231,7 +224,7 @@
     </article>
   </div>
   
-  <div style="border: 1px solid; float: left; "><img style=" height: 150px; width: 150px;" src="images/usericon.png" alt="">
+  <div style="border: 1px solid; float: left; "><img style=" height: 150px; width: 150px;" src="<c:url value='/images/usericon.png'/>" alt="">
   </div>
   <div style=" float:none; width:auto;">
     <article style="margin-left: 17%;" >
@@ -260,6 +253,6 @@
         <span>PIMED</span>
       </a>. 
     </section>
-    <script class="u-script" type="text/javascript" src="panier1.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="/panier1.js" defer=""></script>
   </body>
 </html>

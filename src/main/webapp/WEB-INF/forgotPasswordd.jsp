@@ -57,51 +57,19 @@
               </div>
             </div>
             </c:if>
-            
-            
+            <div class="d-flex flex-row justify-content-center my-2">
+              <p>Mot de passe oublié? Aucun problème. Communiquez-nous simplement votre adresse e-mail et nous vous enverrons par e-mail un lien de reinitialisation de mot de passe qui vous permettra d'en choisir un nouveau.</p>
+            </div>
             <div class="u-form u-form-1">
               <form action="register" method="POST" class="u-clearfix u-form-spacing-13 u-form-vertical u-inner-form" style="padding: 0;" name="form">
-                <div class="u-form-group u-form-name u-form-partition-factor-2">
-                  <label for="name-f18c" class="u-label u-label-2">Username</label>
-                  <input type="text" placeholder="" id="username-f18c" name="username" class="u-grey-5 u-input u-input-rectangle u-input-2" required="">
-                </div>
-                <div class="u-form-group u-form-name u-form-partition-factor-2">
-                  <label for="name-f18c" class="u-label u-label-2">Mot de passe</label>
-                  <input type="password" placeholder="" id="password-f18c" name="password" class="u-grey-5 u-input u-input-rectangle u-input-2" required="">
-                </div>
+
                 <div class="u-form-email u-form-group u-form-partition-factor-2">
                   <label for="email-f18c" class="u-label u-label-1">Email</label>
                   <input type="email" placeholder="" id="email-f18c" name="email" class="u-grey-5 u-input u-input-rectangle u-input-1" required="">
                 </div>
-                <div class="u-form-group u-form-name u-form-partition-factor-2">
-                  <label for="name-f18c" class="u-label u-label-2">Nom complet</label>
-                  <input type="text" placeholder="" id="nomComplet-f18c" name="nomComplet" class="u-grey-5 u-input u-input-rectangle u-input-2" required="">
-                </div>
-                <div class="u-form-group u-form-name u-form-partition-factor-2">
-                  <label for="name-f18c" class="u-label u-label-2">Adresse</label>
-                  <input type="text" placeholder="" id="adresse-f18c" name="adresse" class="u-grey-5 u-input u-input-rectangle u-input-2" required="">
-                </div>
-                <div class="u-form-group u-form-name u-form-partition-factor-2">
-                  <label for="name-f18c" class="u-label u-label-2">Pays</label>
-                  <select class="u-grey-5 u-input u-input-rectangle u-input-2" name="pays">
-                    <option value="Maroc" selected>Maroc</option>
-                    <option value="France">France</option>
-                    <option value="USA">USA</option>
-                    <option value="Allemand">Allemand</option>
-                    <option value="Japon">Japon</option>
-                    <option value="Canada">Canada</option>
-                  </select>
-                </div>
-                <div class="u-form-group u-form-name u-form-partition-factor-2">
-                  <label for="name-f18c" class="u-label u-label-2">Province</label>
-                  <input type="text" placeholder="" id="province-f18c" name="province" class="u-grey-5 u-input u-input-rectangle u-input-2" required="">
-                </div>
-                <div class="u-form-group u-form-partition-factor-2 u-form-phone u-form-group-3">
-                  <label for="phone-cbff" class="u-label u-label-3" wfd-invisible="true">Tel</label>
-                  <input type="tel" pattern="\+?\d{0,2}[\s\(\-]?([0-9]{3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})" placeholder="" id="phone-cbff" name="tel" class="u-grey-5 u-input u-input-rectangle u-input-3" required="">
-                </div>
+                
                 <div class="u-align-center u-form-group u-form-submit">
-                  <input class="u-btn-submit u-button-style u-custom-color-5 u-btn-1" type="submit" value="Créer le compte">
+                  <input class="u-btn-submit u-button-style u-custom-color-5 u-btn-1" type="submit" value="Envoyer">
                 </div>
               </form>
             </div>

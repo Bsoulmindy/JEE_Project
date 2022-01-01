@@ -1,3 +1,5 @@
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
   <head>
@@ -8,7 +10,8 @@
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Accueil</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="Accueil.css" media="screen">
+    <link rel="stylesheet" href="Accueil.css" media="screen">
+    <link rel="stylesheet" href="bootstrap.min.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 4.1.0, nicepage.com">
@@ -27,96 +30,16 @@
     <meta property="og:title" content="Accueil">
     <meta property="og:type" content="website">
   </head>
-  <body class="u-body u-overlap u-overlap-contrast u-overlap-transparent u-stick-footer"><header class="u-black u-clearfix u-header" id="sec-8099"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-    
-    <a href="/About.html" class="pimed-logo u-image u-logo u-image-1 u-logo-image u-logo-image-1" >
-      <span style="color: brown;">PI</span><span style="color: darkgray;">MED</span> 
-      </a>
-      
-        <nav class="u-align-left u-dropdown-icon u-menu u-menu-dropdown u-nav-spacing-25 u-offcanvas u-menu-1" data-responsive-from="XL">
-          <div class="menu-collapse">
-            <a class="u-button-style u-nav-link" href="#" style="font-size: calc(1em + 8px); color: rgb(17, 17, 17) !important;">
-              <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 53 53" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-c6da"></use></svg>
-              <svg class="u-svg-content" viewBox="0 0 53 53" x="0px" y="0px" id="svg-c6da" style="enable-background:new 0 0 53 53;"><path style="fill:#E7ECED;" d="M18.613,41.552l-7.907,4.313c-0.464,0.253-0.881,0.564-1.269,0.903C14.047,50.655,19.998,53,26.5,53
-	c6.454,0,12.367-2.31,16.964-6.144c-0.424-0.358-0.884-0.68-1.394-0.934l-8.467-4.233c-1.094-0.547-1.785-1.665-1.785-2.888v-3.322
-	c0.238-0.271,0.51-0.619,0.801-1.03c1.154-1.63,2.027-3.423,2.632-5.304c1.086-0.335,1.886-1.338,1.886-2.53v-3.546
-	c0-0.78-0.347-1.477-0.886-1.965v-5.126c0,0,1.053-7.977-9.75-7.977s-9.75,7.977-9.75,7.977v5.126
-	c-0.54,0.488-0.886,1.185-0.886,1.965v3.546c0,0.934,0.491,1.756,1.226,2.231c0.886,3.857,3.206,6.633,3.206,6.633v3.24
-	C20.296,39.899,19.65,40.986,18.613,41.552z"></path><g><path style="fill:#556080;" d="M26.953,0.004C12.32-0.246,0.254,11.414,0.004,26.047C-0.138,34.344,3.56,41.801,9.448,46.76
-		c0.385-0.336,0.798-0.644,1.257-0.894l7.907-4.313c1.037-0.566,1.683-1.653,1.683-2.835v-3.24c0,0-2.321-2.776-3.206-6.633
-		c-0.734-0.475-1.226-1.296-1.226-2.231v-3.546c0-0.78,0.347-1.477,0.886-1.965v-5.126c0,0-1.053-7.977,9.75-7.977
-		s9.75,7.977,9.75,7.977v5.126c0.54,0.488,0.886,1.185,0.886,1.965v3.546c0,1.192-0.8,2.195-1.886,2.53
-		c-0.605,1.881-1.478,3.674-2.632,5.304c-0.291,0.411-0.563,0.759-0.801,1.03V38.8c0,1.223,0.691,2.342,1.785,2.888l8.467,4.233
-		c0.508,0.254,0.967,0.575,1.39,0.932c5.71-4.762,9.399-11.882,9.536-19.9C53.246,12.32,41.587,0.254,26.953,0.004z"></path>
-</g></svg>
-            </a>
-          </div>
-          <div class="u-custom-menu u-nav-container">
-            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-black u-text-hover-black" href="Profil-de-Client.html" style="padding: 10px 20px;">profil</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-black u-text-hover-black" href="Accueil.html" style="padding: 10px 20px;">Deconnexion</a>
-
-</li></ul>
-          </div>
-          <div class="u-custom-menu u-nav-container-collapse">
-            <div class="u-align-center u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
-              <div class="u-inner-container-layout u-sidenav-overflow">
-                <div class="u-menu-close"></div>
-                <ul class="u-align-left u-nav u-popupmenu-items u-text-hover-custom-color-5 u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profil-de-Client.html" style="padding: 10px 20px;">profil</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Accueil.html" style="padding: 10px 20px;">Deconnexion</a>
-</li></ul>
-              </div>
-            </div>
-            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
-          </div>
-        </nav>
-        <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-2">
-          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; font-weight: 700;">
-            <a class="u-button-style u-custom-active-border-color u-custom-border u-custom-border-color u-custom-borders u-custom-hover-border-color u-custom-left-right-menu-spacing u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link" href="#">
-              <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
-              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><symbol id="menu-hamburger" viewBox="0 0 16 16" style="width: 16px; height: 16px;"><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
-</symbol>
-</defs></svg>
-            </a>
-          </div>
-          <div class="u-nav-container">
-            
-           <span style=" margin-right:30px;"> <input style="background-color: rgb(61 77 90); width:200px;" type="text" value="" placeholder="rechercher....">
-               <button  style="background-color:  rgb(61 77 90) ; color:white; padding: 4px;">rechercher</button></span>
-            <ul class="u-nav u-spacing-20 u-unstyled u-nav-3"><li class="u-nav-item"><a class="u-border-active-grey-90 u-border-hover-grey-50 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-white u-text-custom-color-5 u-text-hover-white" href="Accueil.html" style="padding: 10px;">Accueil</a>
-</li><li class="u-nav-item"><a class="u-border-active-grey-90 u-border-hover-grey-50 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-white u-text-hover-white" href="About.html" style="padding: 10px; color: rgb(146, 207, 236);">About</a>
-</li><li class="u-nav-item"><a class="u-border-active-grey-90 u-border-hover-grey-50 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-white u-text-hover-white" href="produits.html" style="padding: 10px; color: rgb(146, 207, 236);">produits</a>
-</li><li class="u-nav-item"><a class="u-border-active-grey-90 u-border-hover-grey-50 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-white u-text-hover-white" href="sinscrire.html" style="padding: 10px; color: rgb(146, 207, 236);">sinscrire</a>
-</li><li class="u-nav-item"><a class="u-border-active-grey-90 u-border-hover-grey-50 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-white u-text-hover-white" href="se-connecter.html" style="padding: 10px; color: rgb(146, 207, 236);">se connecter</a>
-</li><a href="panier1.html"> <i  class="fas fa-shopping-cart cart"></i>  </a>
-</ul>
-
-
-
-          
-          <div class="u-nav-container-collapse">
-            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
-              <div class="u-inner-container-layout u-sidenav-overflow">
-                <div class="u-menu-close"></div>
-                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-4"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Accueil.html">Accueil</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.html">About</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="produits.html">Produits</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="sinscrire.html">S'inscrire</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="se-connecter.html">Se connecter</a>
-</li></ul>
-              </div>
-            </div>
-            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
-          </div>
-        </nav>
-      </div></header>
+  <body class="u-body u-overlap u-overlap-contrast u-overlap-transparent u-stick-footer">
+    <c:import url="/inc/header.jsp"/>
     <section class="u-align-center u-clearfix u-image u-shading u-section-1" src="" data-image-width="1300" data-image-height="867" id="sec-7f6a">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h1 class="u-text u-text-default u-title u-text-1"> SANTÉ À DOMICILE</h1>
-        <h2 class="u-text u-text-white u-text-2"> Prendre le temps de se r​établir et laisser PIMED s’oc​cuper du reste.<span style="font-size: 1.5rem;">
+        <h2 class="u-text u-text-white u-text-2"> Prendre le temps de se rétablir et laisser PIMED s’occuper du reste.<span style="font-size: 1.5rem;">
             <span style="font-size: 2.25rem;"></span>
           </span>
         </h2>
-        <a href="About.html" class="u-btn u-button-style u-palette-2-base u-btn-1">Lire la suite</a>
+        <a href="Produits" class="u-btn u-button-style u-palette-2-base u-btn-1">Découvrir nos produits</a>
       </div>
     </section>
     <section class="u-align-center u-clearfix u-custom-color-5 u-section-2" id="sec-e794">
@@ -126,7 +49,7 @@
         <div class="u-expanded-width u-list u-list-1">
           <div class="u-repeater u-repeater-1">
             <div class="u-align-center u-container-style u-list-item u-palette-5-dark-2 u-repeater-item u-video-cover u-list-item-1">
-              <div class="u-container-layout u-similar-container u-container-layout-1"><span class="u-file-icon u-icon u-spacing-10 u-white u-icon-1"><img src="images/poumons1.png" alt=""></span>
+              <div class="u-container-layout u-similar-container u-container-layout-1"><span class="u-file-icon u-icon u-spacing-10 u-white u-icon-1"><img src="<c:url value='images/poumons1.png'/>" alt=""></span>
                 <h4 class="u-text u-text-default u-text-2">
                   <span style="font-weight: 700;">Ventilation</span>
                   <span style="font-weight: 700;"></span>
@@ -135,13 +58,13 @@
               </div>
             </div>
             <div class="u-align-center u-container-style u-list-item u-palette-5-dark-2 u-repeater-item u-video-cover u-list-item-2">
-              <div class="u-container-layout u-similar-container u-container-layout-2"><span class="u-file-icon u-icon u-spacing-10 u-white u-icon-2"><img src="images/troubles-du-sommeil.png" alt=""></span>
+              <div class="u-container-layout u-similar-container u-container-layout-2"><span class="u-file-icon u-icon u-spacing-10 u-white u-icon-2"><img src="<c:url value='images/troubles-du-sommeil.png'/>" alt=""></span>
                 <h4 class="u-text u-text-default u-text-4"> Apnée du Sommeil</h4>
                 <p class="u-text u-text-5"> Du dépistage au traitement des troubles respiratoires du sommeil. En améliorant la qualité de sommeil on améliore la qualité de vie.&nbsp;</p>
               </div>
             </div>
             <div class="u-align-center u-container-style u-list-item u-palette-5-dark-2 u-repeater-item u-video-cover u-list-item-3">
-              <div class="u-container-layout u-similar-container u-container-layout-3"><span class="u-file-icon u-icon u-spacing-10 u-white u-icon-3"><img src="images/oxygen.png" alt=""></span>
+              <div class="u-container-layout u-similar-container u-container-layout-3"><span class="u-file-icon u-icon u-spacing-10 u-white u-icon-3"><img src="<c:url value='images/oxygen.png'/>" alt=""></span>
                 <h4 class="u-text u-text-default u-text-6"> Oxygénothérapie</h4>
                 <p class="u-text u-text-7"> Traitement temporaire ou prolongé pour améliorer l’apport en oxygène que vous respirez afin d’améliorer le fonctionnement de tous vos organes.</p>
               </div>
@@ -161,7 +84,7 @@
               <div class="u-align-center u-container-style u-layout-cell u-left-cell u-size-27-lg u-size-27-xl u-size-29-md u-size-29-sm u-size-29-xs u-white u-layout-cell-2">
                 <div class="u-container-layout u-container-layout-2">
                   <h2 class="u-text u-text-custom-color-5 u-text-1"> Nos services </h2>
-                  <p class="u-custom-font u-font-open-sans u-text u-text-palette-5-dark-3 u-text-2"> Une sélection de produits Puissants, flexibles et précis, ​pour vous aider à être en forme.</p>
+                  <p class="u-custom-font u-font-open-sans u-text u-text-palette-5-dark-3 u-text-2"> Une sélection de produits Puissants, flexibles et précis, pour vous aider à être en forme.</p>
                 </div>
               </div>
             </div>
@@ -198,23 +121,23 @@
               <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1"><span class="u-icon u-icon-circle u-text-custom-color-5 u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 52 52" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-077e"></use></svg><svg class="u-svg-content" viewBox="0 0 52 52" x="0px" y="0px" id="svg-077e" style="enable-background:new 0 0 52 52;"><path style="fill:currentColor;" d="M38.853,5.324L38.853,5.324c-7.098-7.098-18.607-7.098-25.706,0h0
 	C6.751,11.72,6.031,23.763,11.459,31L26,52l14.541-21C45.969,23.763,45.249,11.72,38.853,5.324z M26.177,24c-3.314,0-6-2.686-6-6
 	s2.686-6,6-6s6,2.686,6,6S29.491,24,26.177,24z"></path></svg></span>
-                <h5 class="u-text u-text-1">our main office</h5>
-                <p class="u-text u-text-2">SoHo 94 Broadway St New York, NY 1001</p>
+                <h5 class="u-text u-text-1">Notre location</h5>
+                <p class="u-text u-text-2">Rue La Fontaine, Casablnace</p>
               </div>
             </div>
             <div class="u-align-center u-container-style u-list-item u-repeater-item u-white u-list-item-2">
               <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2"><span class="u-icon u-icon-circle u-text-custom-color-5 u-icon-2"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 513.64 513.64" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-9786"></use></svg><svg class="u-svg-content" viewBox="0 0 513.64 513.64" x="0px" y="0px" id="svg-9786" style="enable-background:new 0 0 513.64 513.64;"><g><g><path d="M499.66,376.96l-71.68-71.68c-25.6-25.6-69.12-15.359-79.36,17.92c-7.68,23.041-33.28,35.841-56.32,30.72    c-51.2-12.8-120.32-79.36-133.12-133.12c-7.68-23.041,7.68-48.641,30.72-56.32c33.28-10.24,43.52-53.76,17.92-79.36l-71.68-71.68    c-20.48-17.92-51.2-17.92-69.12,0l-48.64,48.64c-48.64,51.2,5.12,186.88,125.44,307.2c120.32,120.32,256,176.641,307.2,125.44    l48.64-48.64C517.581,425.6,517.581,394.88,499.66,376.96z"></path>
 </g>
 </g></svg></span>
-                <h5 class="u-text u-text-3">phone number</h5>
-                <p class="u-text u-text-4">234-9876-5400 <br>888-0123-4567 (Toll Free)
+                <h5 class="u-text u-text-3">Téléphone</h5>
+                <p class="u-text u-text-4">0649-231740
                 </p>
               </div>
             </div>
             <div class="u-align-center u-container-style u-list-item u-repeater-item u-white u-list-item-3">
               <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3"><span class="u-icon u-icon-circle u-text-custom-color-5 u-icon-3"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 512 512" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-d01e"></use></svg><svg class="u-svg-content" viewBox="0 0 512 512" id="svg-d01e"><path d="m201 12.714v184.286h267v-184.286c0-7.022-5.692-12.714-12.714-12.714h-241.572c-7.022 0-12.714 5.692-12.714 12.714zm63.89 33.131h70.271c8.284 0 15 6.716 15 15s-6.716 15-15 15h-70.271c-8.284 0-15-6.716-15-15s6.715-15 15-15zm0 75.142h139.22c8.284 0 15 6.716 15 15s-6.716 15-15 15h-139.22c-8.284 0-15-6.716-15-15s6.715-15 15-15z"></path><path d="m472 227h-275c-22.091 0-40 17.909-40 40v205c0 22.091 17.909 40 40 40h275c22.091 0 40-17.909 40-40v-205c0-22.091-17.909-40-40-40zm-207.5 217.5h-20c-8.284 0-15-6.716-15-15s6.716-15 15-15h20c8.284 0 15 6.716 15 15s-6.716 15-15 15zm0-60h-20c-8.284 0-15-6.716-15-15s6.716-15 15-15h20c8.284 0 15 6.716 15 15s-6.716 15-15 15zm0-60h-20c-8.284 0-15-6.716-15-15s6.716-15 15-15h20c8.284 0 15 6.716 15 15s-6.716 15-15 15zm80 120h-20c-8.284 0-15-6.716-15-15s6.716-15 15-15h20c8.284 0 15 6.716 15 15s-6.716 15-15 15zm0-60h-20c-8.284 0-15-6.716-15-15s6.716-15 15-15h20c8.284 0 15 6.716 15 15s-6.716 15-15 15zm0-60h-20c-8.284 0-15-6.716-15-15s6.716-15 15-15h20c8.284 0 15 6.716 15 15s-6.716 15-15 15zm80 120h-20c-8.284 0-15-6.716-15-15s6.716-15 15-15h20c8.284 0 15 6.716 15 15s-6.716 15-15 15zm0-60h-20c-8.284 0-15-6.716-15-15s6.716-15 15-15h20c8.284 0 15 6.716 15 15s-6.716 15-15 15zm0-60h-20c-8.284 0-15-6.716-15-15s6.716-15 15-15h20c8.284 0 15 6.716 15 15s-6.716 15-15 15z"></path><path d="m87 227h-47c-22.091 0-40 17.909-40 40v205c0 22.091 17.909 40 40 40h47c22.091 0 40-17.909 40-40v-205c0-22.091-17.909-40-40-40z"></path></svg></span>
                 <h5 class="u-text u-text-5">Fax</h5>
-                <p class="u-text u-text-6">1-234-567-8900</p>
+                <p class="u-text u-text-6">+212-56-7650</p>
               </div>
             </div>
             <div class="u-align-center u-container-style u-list-item u-repeater-item u-white u-list-item-4">
@@ -229,7 +152,7 @@
 </g></svg></span>
                 <h5 class="u-text u-text-7">Email</h5>
                 <p class="u-text u-text-8">
-                  <a href="mailto:hello@theme.com" class="u-active-none u-border-1 u-border-active-black u-border-hover-black u-border-palette-4-dark-2 u-btn u-button-link u-button-style u-hover-none u-none u-text-active-black u-text-hover-black u-text-palette-4-dark-1 u-btn-1">hello@theme.com</a>
+                  <a href="mailto:contact@pimed.com" class="u-active-none u-border-1 u-border-active-black u-border-hover-black u-border-palette-4-dark-2 u-btn u-button-link u-button-style u-hover-none u-none u-text-active-black u-text-hover-black u-text-palette-4-dark-1 u-btn-1">contact@pimed.com</a>
                 </p>
               </div>
             </div>
@@ -240,24 +163,23 @@
             <div class="u-layout-row">
               <div class="u-align-left u-container-style u-custom-color-5 u-layout-cell u-left-cell u-size-30 u-layout-cell-1">
                 <div class="u-container-layout u-container-layout-5">
-                  <h3 class="u-text u-text-default u-text-9">Contact info</h3>
+                  <h3 class="u-text u-text-default u-text-9">Contact</h3>
                   <div class="u-expanded-width-sm u-expanded-width-xs u-form u-form-1">
                     <form action="#" method="POST" class="u-clearfix u-form-spacing-30 u-form-vertical u-inner-form" style="padding: 0px;" source="custom" name="form">
                       <div class="u-form-email u-form-group u-form-partition-factor-2">
                         <label for="email-319a" class="u-label u-text-body-alt-color u-label-1">Email</label>
-                        <input type="email" placeholder="Enter a valid email address" id="email-319a" name="email" class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required="">
+                        <input type="email" placeholder="Entrer une adresse email valide" id="email-319a" name="email" class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required="">
                       </div>
                       <div class="u-form-group u-form-name u-form-partition-factor-2">
-                        <label for="name-319a" class="u-label u-text-body-alt-color u-label-2">Name</label>
-                        <input type="text" placeholder="Enter your Name" id="name-319a" name="name" class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required="">
+                        <label for="name-319a" class="u-label u-text-body-alt-color u-label-2">Nom</label>
+                        <input type="text" placeholder="Entrer votre nom" id="name-319a" name="name" class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required="">
                       </div>
                       <div class="u-form-group u-form-message">
                         <label for="message-319a" class="u-label u-text-body-alt-color u-label-3">Message</label>
-                        <textarea placeholder="Enter your message" rows="4" cols="50" id="message-319a" name="message" class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required=""></textarea>
+                        <textarea placeholder="Entrer votre message" rows="4" cols="50" id="message-319a" name="message" class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required=""></textarea>
                       </div>
                       <div class="u-align-left u-form-group u-form-submit">
-                        <a href="#" class="u-btn u-btn-submit u-button-style u-white u-btn-2">Submit</a>
-                        <input type="submit" value="submit" class="u-form-control-hidden" wfd-invisible="true">
+                        <input type="submit" value="Envoyer">
                       </div>
                       <div class="u-form-send-message u-form-send-success" wfd-invisible="true"> Thank you! Your message has been sent. </div>
                       <div class="u-form-send-error u-form-send-message" wfd-invisible="true"> Unable to send your message. Please fix errors then try again. </div>
@@ -270,7 +192,7 @@
                 <div class="u-container-layout u-container-layout-6">
                   <div class="u-expanded u-grey-light-2 u-map">
                     <div class="embed-responsive">
-                      <iframe class="embed-responsive-item" src="//maps.google.com/maps?output=embed&amp;q=Manhattan%2C%20New%20York&amp;z=10&amp;t=m" data-map="JTdCJTIyYWRkcmVzcyUyMiUzQSUyMk1hbmhhdHRhbiUyQyUyME5ldyUyMFlvcmslMjIlMkMlMjJ6b29tJTIyJTNBMTAlMkMlMjJ0eXBlSWQlMjIlM0ElMjJyb2FkJTIyJTJDJTIybGFuZyUyMiUzQW51bGwlMkMlMjJhcGlLZXklMjIlM0FudWxsJTJDJTIybWFya2VycyUyMiUzQSU1QiU1RCU3RA=="></iframe>
+                      <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=place_id:EipSdWUgTGEgRm9udGFpbmUsIENhc2FibGFuY2EgMjAyNTAsIE1vcm9jY28iLiosChQKEgn38H3M7dKnDRELxq8aQdximRIUChIJOxGqeEfNpw0R0w8xT9jBBgs&key=AIzaSyC6n-D4XSFJKkGNYajLFF363NUmNJmFFB4"></iframe>
                     </div>
                   </div>
                 </div>
@@ -287,23 +209,22 @@
             <div class="u-layout-row">
               <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-32-md u-size-32-sm u-size-32-xs u-size-36-lg u-size-36-xl u-layout-cell-1">
                 <div class="u-container-layout u-valign-middle u-container-layout-1">
-                  <h2 class="u-text u-text-default u-text-1">Follow us</h2>
-                  <a href="" class="u-btn u-button-style u-white u-btn-1">go up</a>
+                  <h2 class="u-text u-text-default u-text-1">Rejoignez nous</h2>
                 </div>
               </div>
               <div class="u-align-left-sm u-align-left-xs u-align-right-lg u-align-right-md u-align-right-xl u-container-style u-layout-cell u-right-cell u-size-24-lg u-size-24-xl u-size-28-md u-size-28-sm u-size-28-xs u-layout-cell-2">
                 <div class="u-container-layout u-valign-middle u-container-layout-2">
                   <div class="u-social-icons u-spacing-17 u-social-icons-1">
-                    <a class="u-social-url" title="facebook" target="_blank" href="https://facebook.com/name"><span class="u-icon u-social-facebook u-social-icon u-text-white"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-2e4f"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-2e4f"><path fill="currentColor" d="M75.5,28.8H65.4c-1.5,0-4,0.9-4,4.3v9.4h13.9l-1.5,15.8H61.4v45.1H42.8V58.3h-8.8V42.4h8.8V32.2
+                    <a class="u-social-url" title="facebook" target="_blank" href="https://facebook.com/pimed"><span class="u-icon u-social-facebook u-social-icon u-text-white"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-2e4f"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-2e4f"><path fill="currentColor" d="M75.5,28.8H65.4c-1.5,0-4,0.9-4,4.3v9.4h13.9l-1.5,15.8H61.4v45.1H42.8V58.3h-8.8V42.4h8.8V32.2
 c0-7.4,3.4-18.8,18.8-18.8h13.8v15.4H75.5z"></path></svg></span>
                     </a>
-                    <a class="u-social-url" title="twitter" target="_blank" href="https://twitter.com/name"><span class="u-icon u-social-icon u-social-twitter u-text-white"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-c508"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-c508"><path fill="currentColor" d="M92.2,38.2c0,0.8,0,1.6,0,2.3c0,24.3-18.6,52.4-52.6,52.4c-10.6,0.1-20.2-2.9-28.5-8.2
+                    <a class="u-social-url" title="twitter" target="_blank" href="https://twitter.com/pimed"><span class="u-icon u-social-icon u-social-twitter u-text-white"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-c508"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-c508"><path fill="currentColor" d="M92.2,38.2c0,0.8,0,1.6,0,2.3c0,24.3-18.6,52.4-52.6,52.4c-10.6,0.1-20.2-2.9-28.5-8.2
 	c1.4,0.2,2.9,0.2,4.4,0.2c8.7,0,16.7-2.9,23-7.9c-8.1-0.2-14.9-5.5-17.3-12.8c1.1,0.2,2.4,0.2,3.4,0.2c1.6,0,3.3-0.2,4.8-0.7
 	c-8.4-1.6-14.9-9.2-14.9-18c0-0.2,0-0.2,0-0.2c2.5,1.4,5.4,2.2,8.4,2.3c-5-3.3-8.3-8.9-8.3-15.4c0-3.4,1-6.5,2.5-9.2
 	c9.1,11.1,22.7,18.5,38,19.2c-0.2-1.4-0.4-2.8-0.4-4.3c0.1-10,8.3-18.2,18.5-18.2c5.4,0,10.1,2.2,13.5,5.7c4.3-0.8,8.1-2.3,11.7-4.5
 	c-1.4,4.3-4.3,7.9-8.1,10.1c3.7-0.4,7.3-1.4,10.6-2.9C98.9,32.3,95.7,35.5,92.2,38.2z"></path></svg></span>
                     </a>
-                    <a class="u-social-url" title="instagram" target="_blank" href="https://instagram.com/name"><span class="u-icon u-social-icon u-social-instagram u-text-white"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-9d85"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-9d85"><path fill="currentColor" d="M55.9,32.9c-12.8,0-23.2,10.4-23.2,23.2s10.4,23.2,23.2,23.2s23.2-10.4,23.2-23.2S68.7,32.9,55.9,32.9z
+                    <a class="u-social-url" title="instagram" target="_blank" href="https://instagram.com/pimed"><span class="u-icon u-social-icon u-social-instagram u-text-white"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-9d85"></use></svg><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-9d85"><path fill="currentColor" d="M55.9,32.9c-12.8,0-23.2,10.4-23.2,23.2s10.4,23.2,23.2,23.2s23.2-10.4,23.2-23.2S68.7,32.9,55.9,32.9z
 	 M55.9,69.4c-7.4,0-13.3-6-13.3-13.3c-0.1-7.4,6-13.3,13.3-13.3s13.3,6,13.3,13.3C69.3,63.5,63.3,69.4,55.9,69.4z"></path><path fill="#FFFFFF" d="M79.7,26.8c-3,0-5.4,2.5-5.4,5.4s2.5,5.4,5.4,5.4c3,0,5.4-2.5,5.4-5.4S82.7,26.8,79.7,26.8z"></path><path fill="currentColor" d="M78.2,11H33.5C21,11,10.8,21.3,10.8,33.7v44.7c0,12.6,10.2,22.8,22.7,22.8h44.7c12.6,0,22.7-10.2,22.7-22.7
 	V33.7C100.8,21.1,90.6,11,78.2,11z M91,78.4c0,7.1-5.8,12.8-12.8,12.8H33.5c-7.1,0-12.8-5.8-12.8-12.8V33.7
 	c0-7.1,5.8-12.8,12.8-12.8h44.7c7.1,0,12.8,5.8,12.8,12.8V78.4z"></path></svg></span>
@@ -335,7 +256,7 @@ c0-7.4,3.4-18.8,18.8-18.8h13.8v15.4H75.5z"></path></svg></span>
       <p class="u-text">
         <span> &copy; All rights reserved by</span>
       </p>
-      <a class="u-link" href="/About.html" target="_blank">
+      <a class="u-link" href="/About" target="_blank">
         <span>PIMED</span>
       </a>. 
     </section>

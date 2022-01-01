@@ -1,26 +1,25 @@
 package com.miniprojet.miniprojet.Controller;
 
-import java.util.List;
-
-import com.miniprojet.miniprojet.Model.Stock;
 import com.miniprojet.miniprojet.Service.CompteService;
-import com.miniprojet.miniprojet.Service.StockService;
+import com.miniprojet.miniprojet.Service.ProduitService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/Produits")
-public class ProduitsController {
-    @Autowired StockService stockService;
+@RequestMapping("/Produit")
+public class ProduitController {
     @Autowired CompteService compteService;
+    @Autowired ProduitService produitService;
     
-    @GetMapping(path="")
-    public String AllProduitsStock(Model model, String q) // q : la zone de recherche
+    @GetMapping(path="/{id}")
+    public String AllProduitsStock(Model model,@PathVariable("id") @Nullable String id) // id : ID du produit
     {
         //Verifions si l'utilisatuer actuel est connecté avec SecurityContext
         if(SecurityContextHolder.getContext().getAuthentication() == null)
@@ -32,16 +31,25 @@ public class ProduitsController {
             model.addAttribute("user", compteService.recupererCompteActuel());
         }
 
-        List<Stock> stocks = stockService.recupererStock(false);
-        if(q == null)
+        //Si id est introuvable
+        if(id == null)
         {
-            model.addAttribute("stocks", stocks);
+            return "redirect:/Produits";
         }
         else
         {
-            model.addAttribute("stocks", stockService.chercherProduits(stocks, q));
+            try
+            {
+                model.addAttribute("produit", produitService.recupererProduitAvecId(Integer.parseInt(id)));
+            }
+            catch(NumberFormatException e)
+            {
+                return "redirect:/Produits";
+            }
         }
 
-        return "Produits";
+        //TODO : Veuillez fixer la page!!!
+
+        return "Produit";
     }
 }

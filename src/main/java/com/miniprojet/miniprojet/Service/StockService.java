@@ -81,4 +81,15 @@ public class StockService {
         stock.setHidden(hidden);
         stockRepository.save(stock);
     }
+
+    public List<Stock> chercherProduits(List<Stock> listInitial, String mot)
+    {
+        List<Stock> listFinale = new ArrayList<Stock>();
+        for (Stock stock : listInitial) {
+            if(stock.getProduit().getNomProduit().contains(mot) || stock.getProduit().getCategorieProduit().contains(mot))
+                listFinale.add(stock);
+        }
+
+        return listFinale;
+    }
 }

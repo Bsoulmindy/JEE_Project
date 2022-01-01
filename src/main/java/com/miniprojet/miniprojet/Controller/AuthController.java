@@ -40,7 +40,11 @@ public class AuthController {
             return "login";
         }
 
-        if(!compteService.connecterAvecUsername(form)) return "login";
+        if(!compteService.connecterAvecUsername(form))
+        {
+            model.addAttribute("error", messagesService.getMessage("username_password_incorrect"));
+            return "login";
+        } 
 
         return "redirect:/";
     }
@@ -48,8 +52,6 @@ public class AuthController {
     @GetMapping(path="register")
     public String formRegister()
     {
-        //TODO : En attente des demandes du page register.jsp
-
         return "register";
     }
 
@@ -61,7 +63,13 @@ public class AuthController {
             return "register";
         }
 
-        if(!compteService.creerCompte(compteForm, false)) return "register";
+        if(!compteService.creerCompte(compteForm, false)) 
+        {
+            model.addAttribute("error", messagesService.getMessage("account_duplicate"));
+            return "register";
+        }
+
+        model.addAttribute("success", true);
 
         return "register";
     }

@@ -1,3 +1,5 @@
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
   <head>
@@ -80,7 +82,6 @@
             <span style=" margin-right:30px;"> <input style="background-color: rgb(45, 47, 49) ; width:200px;" type="text" value="" placeholder="rechercher....">
               <button  style=" background-color:  rgb(45, 47, 49) ; color:white; padding: 4px;" type="">rechercher</button></span>
             <ul class="u-nav u-spacing-20 u-unstyled u-nav-3"><li class="u-nav-item"><a class="u-border-active-grey-90 u-border-hover-grey-50 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-white  u-text-hover-white" href="Accueil.html" style="padding: 10px; color: rgb(146, 207, 236);">Accueil</a>
-</li><li class="u-nav-item"><a class="u-border-active-grey-90 u-border-hover-grey-50 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-white  u-text-hover-white" href="About.html" style="padding: 10px; color: rgb(146, 207, 236);">About</a>
 </li><li class="u-nav-item"><a class="u-border-active-grey-90 u-border-hover-grey-50 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-white  u-text-hover-white" href="produits.html" style="padding: 10px; color: rgb(146, 207, 236);">produits</a>
 </li><li class="u-nav-item"><a class="u-border-active-grey-90 u-border-hover-grey-50 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-white  u-text-hover-white" href="sinscrire.html" style="padding: 10px; color: rgb(146, 207, 236);">sinscrire</a>
 </li><li class="u-nav-item"><a class="u-border-active-grey-90 u-border-hover-grey-50 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-white  u-text-hover-white" href="se-connecter.html" style="padding: 10px; color: rgb(146, 207, 236);">se connecter</a>

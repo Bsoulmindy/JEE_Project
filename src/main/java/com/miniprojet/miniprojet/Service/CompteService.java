@@ -134,15 +134,17 @@ public class CompteService {
     }
 
     /**
-     * Recuperer <code>username</code> du compte connecté
-     * @return <code>username</code> si vous êtes connecté, <code>null</code> sinon
+     * Recuperer <code>Compte</code> connecté
+     * @return <code>Compte</code> si vous êtes connecté, <code>null</code> sinon
      */
-    public String recupererUsernameActuel() {
-        Object userDetails = SecurityContextHolder.getContext().getAuthentication().getDetails();
+    public Compte recupererCompteActuel() {
+        Compte compte = null;
+        Object userDetails = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (userDetails instanceof UserDetails) {
-            return ((UserDetails)userDetails).getUsername();
+            String username = ((UserDetails)userDetails).getUsername();
+            compte = compteRepository.chercherAvecUsername(username);
         }
-        return null;
+        return compte;
     }
 
     public boolean nouveauToken(ForgotPasswordForm form, HttpServletRequest request) {
