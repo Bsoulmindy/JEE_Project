@@ -27,8 +27,6 @@ public class AuthController {
     @GetMapping(path="login")
     public String formLogin()
     {
-        //TODO : En attente des demandes du page login.jsp
-
         return "login";
     }
 
@@ -77,8 +75,6 @@ public class AuthController {
     @GetMapping(path = "forgot_password")
     public String forgotPasswordForm()
     {
-        //TODO : En attente des demandes du page forgotPassword.jsp
-
         return "forgotPassword";
     }
     
