@@ -68,7 +68,7 @@ public class PanierService {
     {
         List<Panier> paniers = new ArrayList<Panier>();
         try {
-            paniers = panierRepository.recupererPaniersDuClient(client.getId());
+            paniers = panierRepository.findByIdIdClient(client.getId());
         } catch (Exception e) {
             return false; // Erreur
         }
@@ -81,7 +81,7 @@ public class PanierService {
     {
         List<Panier> paniers = new ArrayList<Panier>();
         try {
-            paniers = panierRepository.recupererPaniersDuClient(client.getId());
+            paniers = panierRepository.findByIdIdClient(client.getId());
         } catch (Exception e) {
             return null; // Erreur
         }

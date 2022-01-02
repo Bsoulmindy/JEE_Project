@@ -8,10 +8,12 @@
     <meta name="keywords" content="Black, FRiday, 70%, off all, 01, Awesome Interiors, 02, Fresh and Creative, INSPIRED DESIGN.&nbsp;UNPARALLELED EXPERIENCE.EXEMPLARY SERVICE., Follow Us!, Sale50%, man outlet, Or just reach us right here, Let&amp;apos;s get social!">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>produits</title>
+    <title>Produits</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
     <link rel="stylesheet" href="produits.css" media="screen">
     <link rel="stylesheet" href="bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="headers.css" media="screen">
+
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 4.1.0, nicepage.com">
@@ -33,16 +35,26 @@
   <body class="u-body u-overlap u-stick-footer">
     <c:import url="/inc/header.jsp"/>
 
-    <section class="u-align-center u-clearfix u-section-1" id="sec-fc6e">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <h2 class="u-text u-text-default u-text-1">Liste des produits</h2><!--products--><!--products_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/products_options_json-->
+    <section class="u-align-center u-clearfix" id="sec-fc6e">
+      <div class="u-clearfix u-sheet">
+        <h2 style="margin-top: 10rem;">Liste des produits</h2><!--products--><!--products_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/products_options_json-->
         <div class="d-flex flex-row justify-content-evenly flex-wrap bd-secondary my-5 mx-4">
           <c:forEach items="${ stocks }" var="stock">
-          <a href="/produit/${stock.getProduit().getId()}" class="zoom text-decoration-none text-dark mx-4 mb-3 bg-light-shadow" anim="ripple">
-          <div>
-            <img src="<c:url value='ressources/${stock.getProduit().getUrlImageProduit()}'/>" alt="${stock.getProduit().getNomProduit()}" width="256" height="169" class="rounded">
-            <p class="my-2 text-center">${stock.getProduit().getNomProduit()}</p>
-          </div>
+          <a href="/Produit/${stock.getProduit().getId()}" class="zoom text-decoration-none text-dark mx-4 mb-3 bg-light-shadow" anim="ripple">
+            <div>
+              <img src="<c:url value='${stock.getProduit().getUrlImageProduit()}'/>" alt="${stock.getProduit().getNomProduit()}" width="256" height="169" class="rounded">
+              <table width="256">
+                <tr>
+                    <td width="25%">Nom</td><td width="5%">:</td><td width="70%" class="text-break fw-bold">${stock.getProduit().getNomProduit()}</td>
+                </tr>
+                <tr>
+                    <td>Prix</td><td>:</td><td class="text-break fw-bold">${stock.getProduit().getPrixProduit()} DH</td>
+                </tr>
+                <tr>
+                    <td>En stock</td><td>:</td><td class="text-break fw-bold">${stock.getNbStock()}</td>
+                </tr>
+            </table>
+            </div>
           </a>
           </c:forEach>
         </div>
@@ -60,6 +72,7 @@
       </a>. 
     </section>
     <script src="bootstrap.min.js"></script>
+    <script src="ripple.js"></script>
     <script src="bootstrap.bundle.min.js"></script>
   </body>
 </html>

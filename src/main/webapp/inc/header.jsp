@@ -32,7 +32,7 @@
         </nav>
 </c:if>
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-2">
-          <form action="produits" method="get">
+          <form action="Produits" method="get">
           <div class="u-nav-container">
             
             <span style=" margin-right:30px;"> <input style="background-color: rgb(61 77 90); width:200px;" type="text" name="q" value="" placeholder="Chercher....">
@@ -40,7 +40,10 @@
             </span>
             
             <ul class="u-nav u-spacing-20 u-unstyled u-nav-3"><li class="u-nav-item"><a class="u-border-active-grey-90 u-border-hover-grey-50 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-white u-text-hover-white" href="/" style="padding: 10px; color: rgb(146, 207, 236);">Accueil</a>
-</li><li class="u-nav-item"><a class="u-border-active-grey-90 u-border-hover-grey-50 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-white u-text-hover-white" href="Produits" style="padding: 10px; color: rgb(146, 207, 236);">Produits</a>
+</li><li class="u-nav-item"><a class="u-border-active-grey-90 u-border-hover-grey-50 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-white u-text-hover-white" href="/Produits" style="padding: 10px; color: rgb(146, 207, 236);">Produits</a>
+<c:if test="${user.getIsAdmin()}">
+</li><li class="u-nav-item"><a class="u-border-active-grey-90 u-border-hover-grey-50 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-white u-text-hover-white" href="/Admin" style="padding: 10px; color: rgb(146, 207, 236);">Admin</a>
+</c:if>
 </li><li class="u-nav-item"><a href="/Panier"> <i  class="fas fa-shopping-cart cart"></i>  </a>
 </li>
 <c:if test="${user == null}">
@@ -58,8 +61,8 @@
               <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-4"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/">Accueil</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About">About</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Produits">Produits</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/About">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/Produits">Produits</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="sinscrire.html">Créer compte</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="se-connecter.html">Se connecter</a>
 </li></ul>

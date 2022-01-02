@@ -1,6 +1,7 @@
 package com.miniprojet.miniprojet.Controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
@@ -109,10 +110,10 @@ public class PanierController {
             model.addAttribute("user", compteService.recupererCompteActuel());
         }
 
-
         Cookie[] cookies = request.getCookies();
         List<Stock> allStock = stockService.recupererStock(false);
         List<Stock> stocks = new ArrayList<Stock>();
+        HashMap<Integer, Integer> panierTemp = new HashMap<Integer, Integer>();
         for (Cookie cookie : cookies) {
             try {
                 Produit produit = produitService.recupererProduitAvecNom(cookie.getName());
@@ -121,6 +122,7 @@ public class PanierController {
                     if(produit.getId() == stock.getProduit().getId())
                     {
                         stocks.add(stock);
+                        panierTemp.put(produit.getId(), Integer.parseInt(cookie.getValue()));
                         break;
                     }
                 }
@@ -128,7 +130,6 @@ public class PanierController {
                 continue;
             }
         }
-
         //Est ce que le compte est Admin ou client?
         if(compte != null)
         {
@@ -145,8 +146,8 @@ public class PanierController {
                 for (Panier panier : panierService.recupererPaniers(client)) {
                     panierService.supprimerPanier(panier);
                 }
-                for (Stock stock : stocks) {
-                    panierService.ajouterProduitAuPanier(client, stock.getProduit(), stock.getNbStock());
+                for (HashMap.Entry<Integer, Integer> entry : panierTemp.entrySet()) {
+                    panierService.ajouterProduitAuPanier(client, produitService.recupererProduitAvecId(entry.getKey()), entry.getValue());
                 }
                 model.addAttribute("personne", client);
             }
@@ -241,7 +242,7 @@ public class PanierController {
             model.addAttribute("paymentId", paymentId);
             model.addAttribute("PayerID", PayerID);
 
-            return "review";
+            return "Review";
              
         } catch (PayPalRESTException ex) {
             ex.printStackTrace();

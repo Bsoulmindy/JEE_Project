@@ -12,7 +12,7 @@ public interface ProduitRepository extends CrudRepository<Produit, Integer>{
     @Query("from Produit where categorieProduit = :categorie and isDeleted = :deleted")
     List<Produit> chercherProduit(@Param("categorie") String categorie, @Param("deleted") boolean deleted);
 
-    @Query("from Produit where nomProduit = :nomProduit")
-    Produit chercherProduitAvecNom(@Param("nomProduit") String nomProduit);
+    @Query("from Produit where nomProduit = :nomProduit and isDeleted = :deleted")
+    Produit chercherProduitAvecNom(@Param("nomProduit") String nomProduit, @Param("deleted") boolean deleted);
 }
 

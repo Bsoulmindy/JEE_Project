@@ -16,4 +16,12 @@ public interface ProduitAcheteRepository extends CrudRepository<ProduitAchete, I
      */
     @Query("from ProduitAchete a where FUNCTION('DATEDIFF', CURRENT_DATE, a.dateAchat) <= :jours")
     List<ProduitAchete> recupererAchatsAvecDate(@Param("jours") int jours);
+
+    /**
+     * Recupérer tous les achats dans un delai determiné <code>[aujourd'hui - jours1 ; aujourd'hui - jours2]</code>
+     * @param jours
+     * @return
+     */
+    @Query("from ProduitAchete a where FUNCTION('DATEDIFF', CURRENT_DATE, a.dateAchat) <= :jours1 and FUNCTION('DATEDIFF', CURRENT_DATE, a.dateAchat) >= :jours2")
+    List<ProduitAchete> recupererAchatsAvecIntervalle(@Param("jours1") int jours1, @Param("jours2") int jours2);
 }

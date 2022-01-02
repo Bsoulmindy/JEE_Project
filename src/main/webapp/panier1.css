@@ -15,24 +15,23 @@
 
        
         .table {
-            margin-top: 50px;
-            margin-left: 300px;
-            width: 70%;
-            border-collapse: collapse;
-            text-align: center;
-           
+            /* margin-top: 50px; */
+            /* margin-left: 300px; */
+            /* width: 70%; */
+            /* border-collapse: collapse; */
+            /* text-align: center; */
         }
 
         .textcenter{
             text-align: center;
         }
 
-        .table td, th {
+        .table-2 td, th {
             border: 3px solid rgb(177, 174, 179);
             padding: 5px;
         }
 
-        table th {
+        table-2 th {
             color: white;
             background-color: rgb(97, 93, 93);
             
@@ -60,7 +59,7 @@
         #btn1:hover{ 
         background-color: rgb(34, 80, 148);
         }
-        .table2{
+        .table-2{
             margin-top:50px;
             margin-left:70%;
             width: 500px;

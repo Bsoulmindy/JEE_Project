@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/Produit")
-public class ProduitController {
+public class ProduitInfoController {
     @Autowired CompteService compteService;
     @Autowired ProduitService produitService;
     
@@ -65,7 +65,7 @@ public class ProduitController {
             }
         }
 
-        //TODO : Veuillez fixer la page!!!
+        
 
         return "Produit";
     }

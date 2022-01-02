@@ -35,10 +35,10 @@
      
       <div align="center">
         <h1>Vous êtes sur le point de payer</h1>
-        <form action="execute_payment" method="post">
+        <form action="/Panier/execute_payment" method="post">
         <table>
             <tr>
-                <td colspan="2"><b>Details de transaction:</b></td>
+                <td colspan="2"><b class="fs-2 "><u>Details de transaction:</u></b></td>
                 <td>
                     <input type="hidden" name="paymentId" value="${paymentId}" />
                     <input type="hidden" name="PayerID" value="${PayerID}" />
@@ -54,7 +54,7 @@
             </tr>
             <tr><td><br/></td></tr>
             <tr>
-                <td colspan="2"><b>Votre informations:</b></td>
+                <td colspan="2"><b class="fs-2"><u>Vos informations:</u></b></td>
             </tr>
             <tr>
                 <td>Votre prénom:</td>

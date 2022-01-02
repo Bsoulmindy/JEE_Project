@@ -20,7 +20,7 @@ public class StockService {
      * @param produit
      * @param quantite : il peut être négative, mais le nbStock ne peux pas diminuer sous 0
      */
-    public void ajouterProduit(Produit produit, int quantite)
+    public boolean ajouterProduit(Produit produit, int quantite)
     {
         Stock stock = stockRepository.chercherProduit(produit.getId());
         if (stock == null)
@@ -33,6 +33,14 @@ public class StockService {
 
         stock.setNbStock(stock.getNbStock() + quantite);
         if (stock.getNbStock() < 0) stock.setNbStock(0);
+
+        try
+        {
+            stockRepository.save(stock);
+        }
+        catch(Exception e) {return false;}
+
+        return true;
     }
 
     /**
@@ -62,11 +70,11 @@ public class StockService {
 
     /**
      * Supprimer le produit totalement dans le stock
-     * @param produit
+     * @param stock
      */
-    public void supprimerProduit(Produit produit)
+    public void supprimerProduit(Stock stock)
     {
-        stockRepository.deleteById(produit.getId());
+        stockRepository.deleteById(stock.getId());
     }
 
     /**
@@ -86,7 +94,7 @@ public class StockService {
     {
         List<Stock> listFinale = new ArrayList<Stock>();
         for (Stock stock : listInitial) {
-            if(stock.getProduit().getNomProduit().contains(mot) || stock.getProduit().getCategorieProduit().contains(mot))
+            if(stock.getProduit().getNomProduit().contains(mot) || stock.getProduit().getCategorieProduit().compareTo(mot) == 0)
                 listFinale.add(stock);
         }
 

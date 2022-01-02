@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 public interface StockRepository extends CrudRepository<Stock, Integer>{
-    @Query("from Stock where idProduit = :idProduit")
+    @Query("from Stock where id_produit = :idProduit")
     Stock chercherProduit(@Param("idProduit") int idProduit);
     
 }

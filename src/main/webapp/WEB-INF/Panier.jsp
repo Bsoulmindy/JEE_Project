@@ -9,17 +9,17 @@
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Panier</title>
-    <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="panier1.css" media="screen">
-<link rel="stylesheet" href="bootstrap.min.css" media="screen">
-    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <link rel="stylesheet" href="/nicepage.css" media="screen">
+<link rel="stylesheet" href="/panier1.css" media="screen">
+<link rel="stylesheet" href="/bootstrap.min.css" media="screen">
+    <script class="u-script" type="text/javascript" src="/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="/nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 4.1.0, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     <!-- fonts awesome -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     
-    <script src="panier1.js"></script>
+    <script src="/panier1.js"></script>
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
 		"@type": "Organization",
@@ -101,9 +101,9 @@
                     <c:forEach items="${ stocks }" var="stock">
                         <tr class="table-dark">
                             <th scope="row" class="table-dark">${stock.getProduit().getNomProduit()}</th>
-                            <td class="table-dark" id="${stock.getProduit().getNomProduit() + "Prix"}">${stock.getProduit().getPrixProduit()}</td>
+                            <td class="table-dark" id="${stock.getProduit().getNomProduit()}Prix">${stock.getProduit().getPrixProduit()}</td>
                             <td class="table-dark">${stock.getProduit().getCategorieProduit()}</td>
-                            <td class="table-dark" id="${stock.getProduit().getNomProduit() + "Stock"}">${stock.getNbStock()}</td>
+                            <td class="table-dark" id="${stock.getProduit().getNomProduit()}Stock">${stock.getNbStock()}</td>
                             <td class="table-dark">
                                 <button type="button" class="btn btn-primary btn-sm btnSM me-5" onclick="Decrementer('${stock.getProduit().getNomProduit()}')">-</button>
                                 <span class="text-center my-0 me-5 nb-products-in-cart" id="${stock.getProduit().getNomProduit()}"></span>
@@ -124,12 +124,12 @@
             
             <div class="d-flex flex-row justify-content-center">
                 <c:if test="${user != null}">
-                    <a href="Panier/enregistrer" class="mx-2 my-2">
+                    <a href="/Panier/enregistrer" class="mx-2 my-2">
                         <button type="button" class="btn btn-primary mx-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Enregistrer ce panier avec votre compte">
                             Enregistrer
                         </button>
                     </a>
-                    <a href="Panier/achat" class="mx-2 my-2">
+                    <a href="/Panier/achat" class="mx-2 my-2">
                         <button type="button" class="btn btn-primary mx-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Passer au procédure d'achat">
                             Acheter
                         </button>
@@ -164,8 +164,8 @@
         <span>PIMED</span>
       </a>. 
     </section>
-    <script src="bootstrap.min.js"></script>
-    <script src="bootstrap.bundle.min.js"></script>
-    <script src="panier.js"></script>
+    <script src="/bootstrap.min.js"></script>
+    <script src="/bootstrap.bundle.min.js"></script>
+    <script src="/panier.js"></script>
   </body>
 </html>

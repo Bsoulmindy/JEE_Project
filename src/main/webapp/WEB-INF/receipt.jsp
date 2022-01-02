@@ -33,11 +33,11 @@
   <body onload="populateTableList()" class="u-body u-overlap u-overlap-contrast u-stick-footer">
   <c:import url="/inc/header.jsp"/>
      
-
+    <div class="d-flex flex-row justify-content-center" style="margin-top: 10rem;">
       <div class="alert alert-success" role="alert">
         Félicitation! votre ordre va être transporté à votre adresse bientôt!
       </div>
-     
+     </div>
 
 
 

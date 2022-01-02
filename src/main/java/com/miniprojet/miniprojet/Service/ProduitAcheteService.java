@@ -1,5 +1,6 @@
 package com.miniprojet.miniprojet.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -50,14 +51,28 @@ public class ProduitAcheteService {
      * du temps à executer.
      * La solution est de convertir cette méthode à une table séparée
      */
-    public float ChiffresAffaires(int jours)
+    public float ChiffresAffaires(int jours1, int jours2)
     {
         float chiffresAffaires = 0;
-        List<ProduitAchete> result = produitAcheteRepository.recupererAchatsAvecDate(jours);
+        List<ProduitAchete> result = produitAcheteRepository.recupererAchatsAvecIntervalle(jours1, jours2);
         for(ProduitAchete produitAchete : result)
         {
             Produit produit =  produitAchete.getProduit();
-            chiffresAffaires += (produit.getPrixProduit() - produit.getPrixProduit())*produitAchete.getNbAchat();
+            chiffresAffaires += (produit.getPrixProduit() - produit.getPrixFournisseur())*produitAchete.getNbAchat();
+        }
+        return chiffresAffaires;
+    }
+
+    public float ChiffresAffaires()
+    {
+        float chiffresAffaires = 0;
+        List<ProduitAchete> result  = new ArrayList<ProduitAchete>();
+        produitAcheteRepository.findAll().iterator().forEachRemaining(result::add);
+        
+        for(ProduitAchete produitAchete : result)
+        {
+            Produit produit =  produitAchete.getProduit();
+            chiffresAffaires += (produit.getPrixProduit() - produit.getPrixFournisseur())*produitAchete.getNbAchat();
         }
         return chiffresAffaires;
     }

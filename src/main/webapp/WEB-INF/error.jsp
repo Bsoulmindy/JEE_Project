@@ -45,7 +45,7 @@
         <div class="u-align-left u-clearfix u-sheet u-sheet-1"></div></footer>
     <section class="u-backlink u-clearfix u-grey-80">
       <p class="u-text">
-        <span> &copy; All rights reserved by</span>
+        <span> &copy;Error All rights reserved by</span>
       </p>
       <a class="u-link" href="/About.html" target="_blank">
         <span>PIMED</span>

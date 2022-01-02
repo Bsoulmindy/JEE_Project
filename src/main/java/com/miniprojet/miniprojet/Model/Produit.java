@@ -17,7 +17,7 @@ public class Produit {
     @JoinColumn(name="idFournisseur", nullable=false)
     private Fournisseur fournisseur;
 
-    @Column(nullable = false)
+    @Column(name="nomProduit" ,nullable = false)
     private String nomProduit;
 
     @Column(nullable = false)
