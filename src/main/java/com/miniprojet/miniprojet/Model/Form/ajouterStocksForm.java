@@ -11,8 +11,8 @@ import java.io.Serializable;
 public class ajouterStocksForm implements Serializable {
     
     //Infos sur le produit
-    @NotNull(message = "{Produit.notnull}")
-    @Size(min=1, message = "{Produit.notempty}")
+    @NotNull(message = "{Produit.invalid}")
+    @Size(min=1, message = "{Produit.invalid}")
     private String idProduit;
 
     @NotNull(message = "{Nb.notnull}")

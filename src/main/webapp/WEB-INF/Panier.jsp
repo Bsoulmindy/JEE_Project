@@ -101,13 +101,13 @@
                     <c:forEach items="${ stocks }" var="stock">
                         <tr class="table-dark">
                             <th scope="row" class="table-dark">${stock.getProduit().getNomProduit()}</th>
-                            <td class="table-dark" id="${stock.getProduit().getNomProduit()}Prix">${stock.getProduit().getPrixProduit()}</td>
+                            <td class="table-dark" id="${stock.getProduit().getId()}Prix">${stock.getProduit().getPrixProduit()}</td>
                             <td class="table-dark">${stock.getProduit().getCategorieProduit()}</td>
-                            <td class="table-dark" id="${stock.getProduit().getNomProduit()}Stock">${stock.getNbStock()}</td>
+                            <td class="table-dark" id="${stock.getProduit().getId()}Stock">${stock.getNbStock()}</td>
                             <td class="table-dark">
-                                <button type="button" class="btn btn-primary btn-sm btnSM me-5" onclick="Decrementer('${stock.getProduit().getNomProduit()}')">-</button>
-                                <span class="text-center my-0 me-5 nb-products-in-cart" id="${stock.getProduit().getNomProduit()}"></span>
-                                <button type="button" class="btn btn-primary btn-sm btnSM" onclick="Incrementer('${stock.getProduit().getNomProduit()}')">+</button>
+                                <button type="button" class="btn btn-primary btn-sm btnSM me-5" onclick="Decrementer('${stock.getProduit().getId()}')">-</button>
+                                <span class="text-center my-0 me-5 nb-products-in-cart" id="${stock.getProduit().getId()}"></span>
+                                <button type="button" class="btn btn-primary btn-sm btnSM" onclick="Incrementer('${stock.getProduit().getId()}')">+</button>
                             </td>
                         </tr>
                       </c:forEach>

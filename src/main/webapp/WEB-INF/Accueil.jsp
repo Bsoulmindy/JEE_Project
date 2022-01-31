@@ -180,7 +180,7 @@
                         <textarea placeholder="Entrer votre message" rows="4" cols="50" id="message-319a" name="message" class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required=""></textarea>
                       </div>
                       <div class="u-align-left u-form-group u-form-submit">
-                        <input type="submit" value="Envoyer">
+                        <input class="btn btn-primary" type="button" value="Envoyer">
                       </div>
                       <div class="u-form-send-message u-form-send-success" wfd-invisible="true"> Thank you! Your message has been sent. </div>
                       <div class="u-form-send-error u-form-send-message" wfd-invisible="true"> Unable to send your message. Please fix errors then try again. </div>

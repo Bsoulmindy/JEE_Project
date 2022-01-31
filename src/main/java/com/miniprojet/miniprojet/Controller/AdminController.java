@@ -40,7 +40,7 @@ public class AdminController {
     public String acceuil(){
         
 
-        return "redirect:/Admin/ajouterProduits";
+        return "redirect:/Admin/stats";
     }
 
     /////////////////////////////Gestion des produits//////////////////////////////////////////

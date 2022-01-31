@@ -10,11 +10,12 @@
 	</parent>
 	<groupId>com.miniprojet</groupId>
 	<artifactId>miniprojet</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
+	<packaging>war</packaging>
 	<name>miniprojet</name>
 	<description>Miniprojet sur un site E-commerce</description>
 	<properties>
-		<java.version>15</java.version>
+		<java.version>8</java.version>
 	</properties>
 	<dependencies>
 		<dependency>

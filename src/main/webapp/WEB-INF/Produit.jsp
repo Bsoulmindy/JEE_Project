@@ -37,15 +37,15 @@
       <main class="d-flex flex-row bd-highlight mb-3 justify-content-evenly" style="margin-top: 10rem;">
         <div class="p-2 bd-highlight me-5" style="width: 50%"><!-- Image -->
           <div class="d-flex flex-row bd-highlight mb-3 justify-content-evenly">
-            <img src="<c:url value='${produit.getUrlImageProduit()}'/>" alt="${produit.getNomProduit()}" width="256" height="169" class="rounded">
+            <img src="<c:url value='${produit.getUrlImageProduit()}'/>" alt="${produit.getId()}" width="256" height="169" class="rounded">
           </div>
 
           <hr class="dropdown-divider">
             <p class="text-center my-0 fw-bold">Votre panier</p>
             <div class="d-flex flex-row justify-content-evenly">
-                <button type="button" class="btn btn-primary btn-sm btnSM" onclick="Decrementer('${produit.getNomProduit()}')">-</button>
-                <span class="text-center my-0 nb-products-in-cart" id="${produit.getNomProduit()}"></span>
-                <button type="button" class="btn btn-primary btn-sm btnSM" onclick="Incrementer('${produit.getNomProduit()}')">+</button>
+                <button type="button" class="btn btn-primary btn-sm btnSM" onclick="Decrementer('${produit.getId()}')">-</button>
+                <span class="text-center my-0 nb-products-in-cart" id="${produit.getId()}"></span>
+                <button type="button" class="btn btn-primary btn-sm btnSM" onclick="Incrementer('${produit.getId()}')">+</button>
           </div>
 
           <div class="d-flex flex-row bd-highlight mb-3 justify-content-evenly">
@@ -68,7 +68,7 @@
               <tr>
                 <th scope="row">${produit.getNomProduit()}</th>
                 <td>${produit.getPrixProduit()} DH</td>
-                <td id="${produit.getNomProduit()}Stock">${produit.getStock().getNbStock()}</td>
+                <td id="${produit.getId()}Stock">${produit.getStock().getNbStock()}</td>
                 <td>${produit.getCategorieProduit()}</td>
                 <td>${produit.getFournisseur().getNomFournisseur()}</td>
               </tr>

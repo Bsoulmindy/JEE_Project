@@ -42,9 +42,6 @@
                 <div class="d-flex flex-row justify-content-center">
                     <div id="chartMois" style="height: 300px; width: 75%;"></div>
                 </div>
-                <div class="d-flex flex-row justify-content-center mt-5">
-                    <div id="chartJour" style="height: 300px; width: 75%;"></div>
-                </div>
             </div>
         </main>
         <script src="/bootstrap.min.js"></script>

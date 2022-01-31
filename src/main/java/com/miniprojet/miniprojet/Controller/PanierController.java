@@ -74,7 +74,7 @@ public class PanierController {
         List<Stock> stocks = new ArrayList<Stock>();
         for (Cookie cookie : cookies) {
             try {
-                Produit produit = produitService.recupererProduitAvecNom(cookie.getName());
+                Produit produit = produitService.recupererProduitAvecId(Integer.parseInt(cookie.getName()));
                 if(produit == null) continue;
                 for (Stock stock : allStock) {
                     if(produit.getId() == stock.getProduit().getId())
@@ -116,7 +116,7 @@ public class PanierController {
         HashMap<Integer, Integer> panierTemp = new HashMap<Integer, Integer>();
         for (Cookie cookie : cookies) {
             try {
-                Produit produit = produitService.recupererProduitAvecNom(cookie.getName());
+                Produit produit = produitService.recupererProduitAvecId(Integer.parseInt(cookie.getName()));
                 if(produit == null) continue;
                 for (Stock stock : allStock) {
                     if(produit.getId() == stock.getProduit().getId())
@@ -212,7 +212,31 @@ public class PanierController {
     @GetMapping(path="/review_payment")
     public String review_payment(@Param("paymentId") String paymentId, @Param("PayerID") String PayerID, final Model model)
     {   
-        Compte compte = null;
+        Compte compte = null;  
+
+        //Verifions si l'utilisatuer actuel est connecté avec SecurityContext
+        if(SecurityContextHolder.getContext().getAuthentication() == null)
+            //Si non, on affecte la variable "user" = null au jsp
+            model.addAttribute("user", null);
+        else
+        {
+            //Si oui, on affecte la variable "user" = compte au jsp
+            compte = compteService.recupererCompteActuel();
+            model.addAttribute("user", compte);
+        }
+
+        //Est ce que le compte est Admin ou client?
+        if(compte != null)
+        {
+            if(compte.getIsAdmin())
+            {
+                model.addAttribute("personne", compte.getAdmin());
+            }
+            else
+            {
+                model.addAttribute("personne", compte.getClient());
+            }
+        }
         //Verifions si l'utilisatuer actuel est connecté avec SecurityContext
         if(SecurityContextHolder.getContext().getAuthentication() == null)
             return "redirect:/";
@@ -252,8 +276,32 @@ public class PanierController {
 
     @PostMapping(path="/execute_payment")
     public String execute_payment(@Param("paymentId") String paymentId, @Param("PayerID") String PayerID, final Model model)
-    {     
+    {
         Compte compte = null;
+
+        //Verifions si l'utilisatuer actuel est connecté avec SecurityContext
+        if(SecurityContextHolder.getContext().getAuthentication() == null)
+            //Si non, on affecte la variable "user" = null au jsp
+            model.addAttribute("user", null);
+        else
+        {
+            //Si oui, on affecte la variable "user" = compte au jsp
+            compte = compteService.recupererCompteActuel();
+            model.addAttribute("user", compte);
+        }
+
+        //Est ce que le compte est Admin ou client?
+        if(compte != null)
+        {
+            if(compte.getIsAdmin())
+            {
+                model.addAttribute("personne", compte.getAdmin());
+            }
+            else
+            {
+                model.addAttribute("personne", compte.getClient());
+            }
+        } 
         Client client = null;
         //Verifions si l'utilisatuer actuel est connecté avec SecurityContext
         if(SecurityContextHolder.getContext().getAuthentication() == null)
@@ -284,6 +332,7 @@ public class PanierController {
             List<Panier> paniers = panierService.recupererPaniers(client);
             for (Panier panier : paniers) {
                 produitAcheteService.EnregistrerAchat(client, panier.getProduit(), panier.getNbProduit());
+                stockService.ajouterProduit(panier.getProduit(), -(panier.getNbProduit()));
             }
 
             return "receipt";
